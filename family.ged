@@ -1,0 +1,145 @@
+0 NOTE Name: Tyler Heckel; GitHub repository: CS-555-Group-5
+0 HEAD
+1 SOUR Family Echo
+2 WWW https://www.familyecho.com/
+1 FILE My Family
+1 DATE 6 SEP 2026
+1 DEST ANSTFILE
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 SUBM @I1@
+2 NAME John Anderson
+1 SUBN
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME John /Anderson/
+2 GIVN John
+2 SURN Anderson
+2 _MARNM Anderson
+1 SEX M
+1 BIRT
+2 DATE 3 MAR 1945
+1 DEAT Y
+2 DATE 15 JUN 1978
+1 FAMS @F1@
+0 @I2@ INDI
+1 NAME Mary /Whitfield/
+2 GIVN Mary
+2 SURN Whitfield
+2 _MARNM Whitfield
+1 SEX F
+1 BIRT
+2 DATE 22 JUL 1948
+1 FAMS @F1@
+1 FAMS @F2@
+0 @I3@ INDI
+1 NAME Robert /Anderson/
+2 GIVN Robert
+2 SURN Anderson
+2 _MARNM Anderson
+1 SEX M
+1 BIRT
+2 DATE 10 SEP 1970
+1 FAMS @F3@
+1 FAMC @F1@
+0 @I4@ INDI
+1 NAME Susan /Anderson/
+2 GIVN Susan
+2 SURN Anderson
+2 _MARNM Anderson
+1 SEX F
+1 BIRT
+2 DATE 5 JAN 1972
+1 FAMS @F4@
+1 FAMC @F1@
+0 @I5@ INDI
+1 NAME Thomas /Baker/
+2 GIVN Thomas
+2 SURN Baker
+2 _MARNM Baker
+1 SEX M
+1 BIRT
+2 DATE 12 NOV 1946
+1 FAMS @F2@
+0 @I6@ INDI
+1 NAME Linda /Baker/
+2 GIVN Linda
+2 SURN Baker
+2 _MARNM Baker
+1 SEX F
+1 BIRT
+2 DATE 8 APR 1981
+1 FAMC @F2@
+0 @I7@ INDI
+1 NAME Faith /Ortiz/
+2 GIVN Faith
+2 SURN Ortiz
+2 _MARNM Ortiz
+1 SEX F
+1 BIRT
+2 DATE 14 FEB 1972
+1 FAMS @F3@
+0 @I8@ INDI
+1 NAME Emily /Anderson/
+2 GIVN Emily
+2 SURN Anderson
+2 _MARNM Anderson
+1 SEX F
+1 BIRT
+2 DATE 20 MAY 1998
+1 FAMC @F3@
+0 @I9@ INDI
+1 NAME Michael /Smith/
+2 GIVN Michael
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 30 AUG 1970
+1 FAMS @F4@
+0 @I10@ INDI
+1 NAME David /Smith/
+2 GIVN David
+2 SURN Smith
+2 _MARNM Smith
+1 SEX M
+1 BIRT
+2 DATE 3 DEC 2000
+1 FAMC @F4@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 CHIL @I4@
+1 MARR
+2 DATE 14 JUN 1968
+1 EVEN
+2 TYPE Ending
+1 _CURRENT N
+1 _PRIMARY N
+0 @F2@ FAM
+1 HUSB @I5@
+1 WIFE @I2@
+1 CHIL @I6@
+1 MARR
+2 DATE 10 MAR 1980
+1 _CURRENT Y
+1 _PRIMARY Y
+0 @F3@ FAM
+1 HUSB @I3@
+1 WIFE @I7@
+1 CHIL @I8@
+1 MARR
+2 DATE 22 JUN 1995
+1 _CURRENT Y
+1 _PRIMARY Y
+0 @F4@ FAM
+1 HUSB @I9@
+1 WIFE @I4@
+1 CHIL @I10@
+1 MARR
+2 DATE 15 AUG 1998
+1 _CURRENT Y
+1 _PRIMARY Y
+0 TRLR
