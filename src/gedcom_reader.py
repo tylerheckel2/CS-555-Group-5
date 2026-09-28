@@ -338,12 +338,32 @@ def check_us01_dates_before_current_date(individuals, families, today):
  
  
 def check_us02_birth_before_marriage(individuals, families):
-    """US02: Birth should occur before marriage of an individual.
-    Not yet implemented.
-    """
+    """US02: Birth should occur before marriage of an individual."""
     errors = []
 
+    for family in families.values():
+        if family.married_date is None:
+            continue
 
+        husband = individuals.get(family.husb)
+        if husband and husband.birth_date:
+            if husband.birth_date >= family.married_date:
+                errors.append((
+                    family.married_line,
+                    f"ERROR: FAMILY: US02: {family.married_line}: {family.id}: "
+                    f"Husband ({husband.id}) birth date {husband.birth_date} "
+                    f"occurs on or after marriage date {family.married_date}"
+                ))
+
+        wife = individuals.get(family.wife)
+        if wife and wife.birth_date:
+            if wife.birth_date >= family.married_date:
+                errors.append((
+                    family.married_line,
+                    f"ERROR: FAMILY: US02: {family.married_line}: {family.id}: "
+                    f"Wife ({wife.id}) birth date {wife.birth_date} "
+                    f"occurs on or after marriage date {family.married_date}"
+                ))
 
     return errors
  
@@ -385,12 +405,32 @@ def check_us05_marriage_before_death(individuals, families):
  
  
 def check_us06_divorce_before_death(individuals, families):
-    """US06: Divorce can only occur before death of both spouses.
-    Not yet implemented.
-    """
+    """US06: Divorce can only occur before death of both spouses."""
     errors = []
 
+    for family in families.values():
+        if family.divorced_date is None:
+            continue
 
+        husband = individuals.get(family.husb)
+        if husband and husband.death_date:
+            if family.divorced_date >= husband.death_date:
+                errors.append((
+                    family.divorced_line,
+                    f"ERROR: FAMILY: US06: {family.divorced_line}: {family.id}: "
+                    f"Divorce date {family.divorced_date} occurs on or after "
+                    f"husband's ({husband.id}) death on {husband.death_date}"
+                ))
+
+        wife = individuals.get(family.wife)
+        if wife and wife.death_date:
+            if family.divorced_date >= wife.death_date:
+                errors.append((
+                    family.divorced_line,
+                    f"ERROR: FAMILY: US06: {family.divorced_line}: {family.id}: "
+                    f"Divorce date {family.divorced_date} occurs on or after "
+                    f"wife's ({wife.id}) death on {wife.death_date}"
+                ))
 
     return errors
  
