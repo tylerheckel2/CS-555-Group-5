@@ -369,15 +369,21 @@ def check_us02_birth_before_marriage(individuals, families):
  
  
 def check_us03_birth_before_death(individuals):
-    """US03: Birth should occur before death of an individual.
-    Not yet implemented.
-    """
+    """ US03: Birth should occur before death of an individual."""
     errors = []
-
-
     
-    return errors
+    for person in individuals.values():
+        if person.birth_date is None or person.death_date is None:
+            continue
  
+        if person.death_date < person.birth_date:
+            errors.append((
+                person.death_line,
+                f"ERROR: INDIVIDUAL: US03: {person.death_line}: {person.id}: "
+                f"Died {person.death_date} before born {person.birth_date}"
+            ))
+ 
+    return errors
  
 def check_us05_marriage_before_death(individuals, families):
     """US05: Marriage should occur before death of either spouse."""
