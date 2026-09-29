@@ -493,4 +493,9 @@ Families
 Sprint 1 User Story Results
 ----------------------------------------------------------------------
 ERROR: INDIVIDUAL: US01: 149: T1: Birthday 2099-01-01 occurs in the future
+ERROR: INDIVIDUAL: US03: 156: T2: Died 1990-01-01 before born 2000-01-01
+ERROR: INDIVIDUAL: US07: 161: T3: More than 150 years old - Birth date 1850-01-01
+ERROR: INDIVIDUAL: US07: 166: T4: More than 150 years old at death - Birth 1700-01-01: Death 1900-01-01
+ERROR: FAMILY: US02: 185: TF1: Husband (TH1) birth date 2000-01-01 occurs on or after marriage date 1990-01-01
 ERROR: FAMILY: US05: 204: TF2: Married 1995-01-01 on or after husband's (TH2) death on 1990-01-01
+ERROR: FAMILY: US06: 225: TF3: Divorce date 1995-01-01 occurs on or after wife's (TW3) death on 1990-01-01
