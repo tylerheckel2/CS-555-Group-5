@@ -384,7 +384,8 @@ def check_us03_birth_before_death(individuals):
             ))
  
     return errors
- 
+
+
 def check_us05_marriage_before_death(individuals, families):
     """US05: Marriage should occur before death of either spouse."""
     errors = []
@@ -444,15 +445,32 @@ def check_us06_divorce_before_death(individuals, families):
 def check_us07_less_than_150_years_old(individuals, today):
     """US07: Death should be less than 150 years after birth for dead
     people; current date should be less than 150 years after birth
-    for living people.
-    Not yet implemented.
-    """
+    for living people."""
     errors = []
-
-
-
+ 
+    for person in individuals.values():
+        if person.birth_date is None:
+            continue
+ 
+        if person.death_date:
+            age = calculate_age(person.birth_date, person.death_date)
+            if age >= 150:
+                errors.append((
+                    person.birth_line,
+                    f"ERROR: INDIVIDUAL: US07: {person.birth_line}: {person.id}: "
+                    f"More than 150 years old at death - Birth {person.birth_date}: "
+                    f"Death {person.death_date}"
+                ))
+        elif person.alive:
+            age = calculate_age(person.birth_date, today)
+            if age >= 150:
+                errors.append((
+                    person.birth_line,
+                    f"ERROR: INDIVIDUAL: US07: {person.birth_line}: {person.id}: "
+                    f"More than 150 years old - Birth date {person.birth_date}"
+                ))
+ 
     return errors
-
 
 
 def run_sprint1_checks(individuals, families):
