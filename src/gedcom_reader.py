@@ -1,6 +1,6 @@
 """
 CS 555 - Agile Methods for Software Development Group 5 Assignment
-GEDCOM Project - Sprint 1
+GEDCOM Project - Sprint 2
 
 Reads a GEDCOM file line by line, validates each line's level/tag,
 and additionally stores the data about individuals and
@@ -17,6 +17,7 @@ Usage: python gedcom_reader.py <gedcom_file>
 
 import sys
 import datetime
+import calendar
 
 # Line-level validation
 
@@ -84,6 +85,15 @@ def parse_date(date_str):
     except ValueError:
         return None
 
+
+def add_months(date, months):
+    """Return the date "months" months after "date", clamping the day
+    if the target month is shorter (e.g. 31 Jan + 1 month -> 28/29 Feb)."""
+    month_index = date.month - 1 + months
+    year = date.year + month_index // 12
+    month = month_index % 12 + 1
+    day = min(date.day, calendar.monthrange(year, month)[1])
+    return datetime.date(year, month, day)
 
 def calculate_age(start, end):
     # Whole years between two dates, or None if either is missing.
@@ -473,24 +483,149 @@ def check_us07_less_than_150_years_old(individuals, today):
     return errors
 
 
-def run_sprint1_checks(individuals, families):
-    """Run all Sprint 1 user story checks and print the results,
-    sorted by line number so they read in file order."""
- 
+# Sprint 2 user story checks
+
+def check_us09_birth_before_death_of_parents(individuals, families):
+    """US09: Child should be born before death of mother, and before
+    9 months after death of father."""
+    errors = []
+
+    for family in families.values():
+        mother = individuals.get(family.wife)
+        father = individuals.get(family.husb)
+
+        for child_id in family.chil:
+            child = individuals.get(child_id)
+            if child is None or child.birth_date is None:
+                continue
+
+            if mother and mother.death_date and child.birth_date >= mother.death_date:
+                errors.append((
+                    child.birth_line,
+                    f"ERROR: FAMILY: US09: {child.birth_line}: {family.id}: "
+                    f"Child ({child.id}) born {child.birth_date} on or after "
+                    f"mother's ({mother.id}) death on {mother.death_date}"
+                ))
+
+            if father and father.death_date:
+                latest_allowed = add_months(father.death_date, 9)
+                if child.birth_date > latest_allowed:
+                    errors.append((
+                        child.birth_line,
+                        f"ERROR: FAMILY: US09: {child.birth_line}: {family.id}: "
+                        f"Child ({child.id}) born {child.birth_date} more than "
+                        f"9 months after father's ({father.id}) death on "
+                        f"{father.death_date}"
+                    ))
+
+    return errors
+
+
+def check_us10_marriage_after_14(individuals, families):
+    """US10: Marriage should be at least 14 years after both spouses' birth.
+    Not yet implemented.
+    """
+    errors = []
+
+
+
+    return errors
+
+
+def check_us11_no_bigamy(individuals, families):
+    """US11: Marriage should not occur while either spouse is already
+    married to someone else.
+    Not yet implemented.
+    """
+    errors = []
+
+
+    
+    return errors
+
+
+def check_us13_siblings_spacing(individuals, families):
+    """US13: Birth dates of siblings should be more than 8 months
+    apart, or less than 2 days apart (to allow for twins)."""
+    errors = []
+
+    for family in families.values():
+        siblings = [individuals[cid] for cid in family.chil
+                    if cid in individuals and individuals[cid].birth_date]
+
+        for i in range(len(siblings)):
+            for j in range(i + 1, len(siblings)):
+                a, b = siblings[i], siblings[j]
+                earlier, later = (a, b) if a.birth_date <= b.birth_date else (b, a)
+
+                gap_days = (later.birth_date - earlier.birth_date).days
+                min_spacing_date = add_months(earlier.birth_date, 8)
+
+                is_twins = gap_days < 2
+                is_spaced_out = later.birth_date >= min_spacing_date
+
+                if not is_twins and not is_spaced_out:
+                    errors.append((
+                        later.birth_line,
+                        f"ERROR: FAMILY: US13: {later.birth_line}: {family.id}: "
+                        f"Siblings ({earlier.id}) born {earlier.birth_date} and "
+                        f"({later.id}) born {later.birth_date} are only "
+                        f"{gap_days} days apart"
+                    ))
+
+    return errors
+
+
+def check_us14_multiple_births_le_5(families):
+    """US14: No more than 5 siblings should be born at the same time
+    (multiple birth).
+    Not yet implemented.
+    """
+    errors = []
+
+
+
+    return errors
+
+
+def check_us15_fewer_than_15_siblings(families):
+    """US15: There should be fewer than 15 siblings in a family.
+    Not yet implemented.
+    """
+    errors = []
+
+
+
+    return errors
+
+
+def run_all_checks(individuals, families):
+    """Run every user story check implemented so far (Sprint 1 and
+    Sprint 2) and print the results together, sorted by line number
+    so they read in file order."""
+
     today = datetime.date.today()
- 
+
     all_errors = []
+    # Sprint 1
     all_errors += check_us01_dates_before_current_date(individuals, families, today)
     all_errors += check_us02_birth_before_marriage(individuals, families)
     all_errors += check_us03_birth_before_death(individuals)
     all_errors += check_us05_marriage_before_death(individuals, families)
     all_errors += check_us06_divorce_before_death(individuals, families)
     all_errors += check_us07_less_than_150_years_old(individuals, today)
- 
+    # Sprint 2
+    all_errors += check_us09_birth_before_death_of_parents(individuals, families)
+    all_errors += check_us10_marriage_after_14(individuals, families)
+    all_errors += check_us11_no_bigamy(individuals, families)
+    all_errors += check_us13_siblings_spacing(individuals, families)
+    all_errors += check_us14_multiple_births_le_5(families)
+    all_errors += check_us15_fewer_than_15_siblings(families)
+
     all_errors.sort(key=lambda pair: pair[0])
- 
+
     print()
-    print("Sprint 1 User Story Results")
+    print("User Story Results (Sprint 1 + Sprint 2)")
     print("-" * 70)
     if not all_errors:
         print("No errors found.")
@@ -511,7 +646,7 @@ def main():
     individuals, families = process_gedcom(filename)
     print_individuals(individuals)
     print_families(individuals, families)
-    run_sprint1_checks(individuals, families)
+    run_all_checks(individuals, families)
 
 
 if __name__ == "__main__":
