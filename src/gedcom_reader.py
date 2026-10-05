@@ -534,13 +534,44 @@ def check_us10_marriage_after_14(individuals, families):
 
 def check_us11_no_bigamy(individuals, families):
     """US11: Marriage should not occur while either spouse is already
-    married to someone else.
-    Not yet implemented.
-    """
+    married to someone else."""
     errors = []
 
+    for person in individuals.values():
+        marriages = []
 
-    
+        for family in families.values():
+            if family.husb == person.id or family.wife == person.id:
+                if family.married_date:
+                    marriages.append(family)
+
+        marriages.sort(key=lambda fam: fam.married_date)
+
+        for i in range(len(marriages) - 1):
+            first_family = marriages[i]
+            second_family = marriages[i + 1]
+
+            end_date = first_family.divorced_date
+
+            if first_family.husb == person.id:
+                spouse_id = first_family.wife
+            else:
+                spouse_id = first_family.husb
+
+            spouse = individuals.get(spouse_id)
+
+            if spouse and spouse.death_date:
+                if end_date is None or spouse.death_date < end_date:
+                    end_date = spouse.death_date
+
+            if end_date is None or second_family.married_date < end_date:
+                errors.append((
+                    second_family.married_line,
+                    f"ERROR: INDIVIDUAL: US11: {second_family.married_line}: "
+                    f"{person.id}: Bigamy detected - marriage in "
+                    f"{second_family.id} occurred before previous marriage ended"
+                ))
+
     return errors
 
 
@@ -589,12 +620,18 @@ def check_us14_multiple_births_le_5(families):
 
 
 def check_us15_fewer_than_15_siblings(families):
-    """US15: There should be fewer than 15 siblings in a family.
-    Not yet implemented.
-    """
+    """US15: There should be fewer than 15 siblings in a family."""
     errors = []
 
+    for family in families.values():
+        number_of_children = len(family.chil)
 
+        if number_of_children >= 15:
+            errors.append((
+                family.line_no,
+                f"ERROR: FAMILY: US15: {family.line_no}: {family.id}: "
+                f"Family has {number_of_children} children, which is not fewer than 15"
+            ))
 
     return errors
 
