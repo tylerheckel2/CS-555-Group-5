@@ -717,6 +717,11 @@ Individuals
 | TW3   | Deceased /Wife/      | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA        | {'TF3'}          |
 | TW9   | Deceased /Mother/    | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA        | {'TF9'}          |
 | TW9B  | Living /Mother/      | F      | 1955-01-01 | 71  | True  | NA   | NA        | {'TF9B'}         |
+| MI11H  | Bigamy /Test/         | M      | 1970-01-01 | 56  | True  | NA   | NA        | {'MI11F1', 'MI11F2'} |
+| MI11W1 | First /Wife/          | F      | 1972-01-01 | 54  | True  | NA   | NA        | {'MI11F1'}           |
+| MI11W2 | Second /Wife/         | F      | 1975-01-01 | 51  | True  | NA   | NA        | {'MI11F2'}           |
+| MI15H  | Large /FamilyFather/  | M      | 1960-01-01 | 66  | True  | NA   | NA        | {'MI15F'}            |
+| MI15W  | Large /FamilyMother/  | F      | 1962-01-01 | 64  | True  | NA   | NA        | {'MI15F'}            |
 +-------+----------------------+--------+------------+-----+-------+------------+-----------+------------------+
 
 Families
@@ -734,6 +739,9 @@ Families
 | TF3   | 1980-01-01 | 1995-01-01 | TH3        | Living /Husband/   | TW3 | Deceased /Wife/   | NA                 |
 | TF9   | 1980-01-01 | NA         | TH9        | Living /Father/    | TW9 | Deceased /Mother/ | {'TC9'}            |
 | TF9B  | 1980-01-01 | NA         | TH9B       | Deceased /Father/  | TW9B | Living /Mother/   | {'TC9B'}           |
+| MI11F1 | 1995-01-01 | NA | MI11H | Bigamy /Test/        | MI11W1 | First /Wife/         | NA |
+| MI11F2 | 2000-01-01 | NA | MI11H | Bigamy /Test/        | MI11W2 | Second /Wife/        | NA |
+| MI15F  | 1980-01-01 | NA | MI15H | Large /FamilyFather/ | MI15W  | Large /FamilyMother/  | {'MI15C1', 'MI15C2', 'MI15C3', 'MI15C4', 'MI15C5', 'MI15C6', 'MI15C7', 'MI15C8', 'MI15C9', 'MI15C10', 'MI15C11', 'MI15C12', 'MI15C13', 'MI15C14', 'MI15C15'} |
 +-------+------------+------------+------------+--------------------+---------+-------------------+--------------------+
 
 User Story Results (Sprint 1 + Sprint 2)
