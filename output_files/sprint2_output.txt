@@ -748,3 +748,5 @@ ERROR: FAMILY: US06: 225: TF3: Divorce date 1995-01-01 occurs on or after wife's
 ERROR: FAMILY: US09: 244: TF9: Child (TC9) born 1990-06-01 on or after mother's (TW9) death on 1990-01-01
 ERROR: FAMILY: US09: 270: TF9B: Child (TC9B) born 1990-12-01 more than 9 months after father's (TH9B) death on 1990-01-01
 ERROR: FAMILY: US13: 300: TF13: Siblings (TC13A) born 1995-01-01 and (TC13B)born 1995-03-01 are only 59 days apart
+ERROR: INDIVIDUAL: US11: 368: MI11H: Bigamy detected - marriage in MI11F2 occurred before previous marriage ended
+ERROR: FAMILY: US15: 381: MI15F: Family has 15 children, which is not fewer than 15
