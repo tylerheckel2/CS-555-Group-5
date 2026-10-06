@@ -522,12 +522,34 @@ def check_us09_birth_before_death_of_parents(individuals, families):
 
 
 def check_us10_marriage_after_14(individuals, families):
-    """US10: Marriage should be at least 14 years after both spouses' birth.
-    Not yet implemented.
-    """
+    """US10: Marriage should be at least 14 years after both spouses' birth."""
     errors = []
 
+    for family in families.values():
+        if family.married_date is None:
+            continue
 
+        husband = individuals.get(family.husb)
+        if husband and husband.birth_date:
+            age = calculate_age(husband.birth_date, family.married_date)
+            if age < 14:
+                errors.append((
+                    family.married_line,
+                    f"ERROR: FAMILY: US10: {family.married_line}: {family.id}: "
+                    f"Husband ({husband.id}) born {husband.birth_date} was {age} "
+                    f"years old at marriage on {family.married_date}, younger than 14"
+                ))
+
+        wife = individuals.get(family.wife)
+        if wife and wife.birth_date:
+            age = calculate_age(wife.birth_date, family.married_date)
+            if age < 14:
+                errors.append((
+                    family.married_line,
+                    f"ERROR: FAMILY: US10: {family.married_line}: {family.id}: "
+                    f"Wife ({wife.id}) born {wife.birth_date} was {age} "
+                    f"years old at marriage on {family.married_date}, younger than 14"
+                ))
 
     return errors
 
@@ -607,17 +629,39 @@ def check_us13_siblings_spacing(individuals, families):
     return errors
 
 
-def check_us14_multiple_births_le_5(families):
+def check_us14_multiple_births_le_5(individuals, families):
     """US14: No more than 5 siblings should be born at the same time
-    (multiple birth).
-    Not yet implemented.
-    """
+    (multiple birth). Siblings born less than 2 days apart count as the
+    same birth, matching the twins rule in US13."""
     errors = []
 
+    for family in families.values():
+        siblings = [individuals[cid] for cid in family.chil
+                    if cid in individuals and individuals[cid].birth_date]
+        siblings.sort(key=lambda person: person.birth_date)
 
+        i = 0
+        while i < len(siblings):
+            first = siblings[i]
+            same_birth = [first]
+
+            j = i + 1
+            while j < len(siblings) and (siblings[j].birth_date - first.birth_date).days < 2:
+                same_birth.append(siblings[j])
+                j += 1
+
+            if len(same_birth) > 5:
+                last = same_birth[-1]
+                errors.append((
+                    last.birth_line,
+                    f"ERROR: FAMILY: US14: {last.birth_line}: {family.id}: "
+                    f"{len(same_birth)} siblings born at the same time on "
+                    f"{first.birth_date}, more than 5"
+                ))
+
+            i = j
 
     return errors
-
 
 def check_us15_fewer_than_15_siblings(families):
     """US15: There should be fewer than 15 siblings in a family."""
@@ -656,7 +700,7 @@ def run_all_checks(individuals, families):
     all_errors += check_us10_marriage_after_14(individuals, families)
     all_errors += check_us11_no_bigamy(individuals, families)
     all_errors += check_us13_siblings_spacing(individuals, families)
-    all_errors += check_us14_multiple_births_le_5(families)
+    all_errors += check_us14_multiple_births_le_5(individuals, families)
     all_errors += check_us15_fewer_than_15_siblings(families)
 
     all_errors.sort(key=lambda pair: pair[0])
