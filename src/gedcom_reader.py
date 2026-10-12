@@ -679,7 +679,75 @@ def check_us15_fewer_than_15_siblings(families):
 
     return errors
 
+def check_us19_first_cousins_should_not_marry(individuals, families):
+    """US19: First cousins should not marry."""
+    errors = []
 
+    # Find each person's parents using the family records
+    parents = {}
+
+    for family in families.values():
+        for child_id in family.chil:
+            parents.setdefault(child_id, set()).update(
+                parent_id
+                for parent_id in (family.husb, family.wife)
+                if parent_id in individuals
+            )
+
+    # Two people are siblings if they share a parent
+    def are_siblings(person1_id, person2_id):
+        return bool(
+            parents.get(person1_id, set())
+            & parents.get(person2_id, set())
+        )
+
+    for family in families.values():
+        husband_parents = parents.get(family.husb, set())
+        wife_parents = parents.get(family.wife, set())
+
+        first_cousins = any(
+            are_siblings(husband_parent, wife_parent)
+            for husband_parent in husband_parents
+            for wife_parent in wife_parents
+        )
+
+        if first_cousins:
+            errors.append((
+                family.married_line or family.line_no,
+                f"ERROR: FAMILY: US19: "
+                f"{family.married_line or family.line_no}: {family.id}: "
+                f"Husband ({family.husb}) and wife ({family.wife}) "
+                f"are first cousins"
+            ))
+
+    return errors
+ 
+def check_us23_unique_name_and_birth_date(individuals):
+    """US23: Individuals should have unique names and birth dates."""
+    errors = []
+    seen = {}
+
+    for person in individuals.values():
+        if not person.name or person.birth_date is None:
+            continue
+
+        key = (person.name.strip(), person.birth_date)
+
+        if key in seen:
+            original = seen[key]
+            line_no = person.birth_line or person.line_no
+
+            errors.append((
+                line_no,
+                f"ERROR: INDIVIDUAL: US23: {line_no}: {person.id}: "
+                f"Same name ({person.name}) and birth date "
+                f"({person.birth_date}) as individual ({original.id})"
+            ))
+        else:
+            seen[key] = person
+
+    return errors
+  
 def run_all_checks(individuals, families):
     """Run every user story check implemented so far (Sprint 1 and
     Sprint 2) and print the results together, sorted by line number
@@ -702,11 +770,13 @@ def run_all_checks(individuals, families):
     all_errors += check_us13_siblings_spacing(individuals, families)
     all_errors += check_us14_multiple_births_le_5(individuals, families)
     all_errors += check_us15_fewer_than_15_siblings(families)
+    all_errors += check_us19_first_cousins_should_not_marry(individuals, families)
+    all_errors += check_us23_unique_name_and_birth_date(individuals)
 
     all_errors.sort(key=lambda pair: pair[0])
 
     print()
-    print("User Story Results (Sprint 1 + Sprint 2)")
+    print("User Story Results (Sprint 1 + Sprint 2 + Sprint 3)")
     print("-" * 70)
     if not all_errors:
         print("No errors found.")
