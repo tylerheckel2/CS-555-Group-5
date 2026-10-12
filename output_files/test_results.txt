@@ -1,0 +1,17 @@
+test_us01_dates_before_current_date (test_gedcom.TestGEDCOMUserStories.test_us01_dates_before_current_date) ... ok
+test_us02_birth_before_marriage (test_gedcom.TestGEDCOMUserStories.test_us02_birth_before_marriage) ... ok
+test_us03_birth_before_death (test_gedcom.TestGEDCOMUserStories.test_us03_birth_before_death) ... ok
+test_us05_marriage_before_death (test_gedcom.TestGEDCOMUserStories.test_us05_marriage_before_death) ... ok
+test_us06_divorce_before_death (test_gedcom.TestGEDCOMUserStories.test_us06_divorce_before_death) ... ok
+test_us07_less_than_150_years_old (test_gedcom.TestGEDCOMUserStories.test_us07_less_than_150_years_old) ... ok
+test_us09_birth_before_death_of_parents (test_gedcom.TestGEDCOMUserStories.test_us09_birth_before_death_of_parents) ... ok
+test_us10_marriage_after_14 (test_gedcom.TestGEDCOMUserStories.test_us10_marriage_after_14) ... ok
+test_us11_no_bigamy (test_gedcom.TestGEDCOMUserStories.test_us11_no_bigamy) ... ok
+test_us13_siblings_spacing (test_gedcom.TestGEDCOMUserStories.test_us13_siblings_spacing) ... ok
+test_us14_multiple_births_le_5 (test_gedcom.TestGEDCOMUserStories.test_us14_multiple_births_le_5) ... ok
+test_us15_fewer_than_15_siblings (test_gedcom.TestGEDCOMUserStories.test_us15_fewer_than_15_siblings) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.003s
+
+OK
