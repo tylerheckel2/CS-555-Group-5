@@ -73,6 +73,10 @@ class TestGEDCOMUserStories(unittest.TestCase):
         errors = gedcom.check_us11_no_bigamy(self.individuals, self.families)
         self.assert_story_errors("US11", errors, ["MI11H"])
 
+    def test_us12_parents_not_too_old(self):
+        errors = gedcom.check_us12_parents_not_too_old(self.individuals, self.families)
+        self.assert_story_errors("US12", errors, ["JB12F1", "JB12F1"])
+
     def test_us13_siblings_spacing(self):
         errors = gedcom.check_us13_siblings_spacing(self.individuals, self.families)
         self.assert_story_errors("US13", errors, ["TF13"])
@@ -85,6 +89,9 @@ class TestGEDCOMUserStories(unittest.TestCase):
         errors = gedcom.check_us15_fewer_than_15_siblings(self.families)
         self.assert_story_errors("US15", errors, ["MI15F"])
 
+    def test_us16_male_last_names(self):
+        errors = gedcom.check_us16_male_last_names(self.individuals, self.families)
+        self.assert_story_errors("US16", errors, ["JB16F1"])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
