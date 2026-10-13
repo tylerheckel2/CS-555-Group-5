@@ -596,6 +596,42 @@ def check_us11_no_bigamy(individuals, families):
 
     return errors
 
+def check_us12_parents_not_too_old(individuals, families):
+    """US12: Mother should be less than 60 years older than her children
+    and father should be less than 80 years older than his children."""
+    errors = []
+
+    for family in families.values():
+        mother = individuals.get(family.wife)
+        father = individuals.get(family.husb)
+
+        for child_id in family.chil:
+            child = individuals.get(child_id)
+            if child is None or child.birth_date is None:
+                continue
+
+            if mother and mother.birth_date:
+                mother_age_diff = calculate_age(mother.birth_date, child.birth_date)
+                if mother_age_diff is not None and mother_age_diff >= 60:
+                    errors.append((
+                        child.birth_line,
+                        f"ERROR: FAMILY: US12: {child.birth_line}: {family.id}: "
+                        f"Mother ({mother.id}) born {mother.birth_date} is {mother_age_diff} "
+                        f"years older than child ({child.id}) born {child.birth_date} (>= 60)"
+                    ))
+
+            if father and father.birth_date:
+                father_age_diff = calculate_age(father.birth_date, child.birth_date)
+                if father_age_diff is not None and father_age_diff >= 80:
+                    errors.append((
+                        child.birth_line,
+                        f"ERROR: FAMILY: US12: {child.birth_line}: {family.id}: "
+                        f"Father ({father.id}) born {father.birth_date} is {father_age_diff} "
+                        f"years older than child ({child.id}) born {child.birth_date} (>= 80)"
+                    ))
+
+    return errors
+
 
 def check_us13_siblings_spacing(individuals, families):
     """US13: Birth dates of siblings should be more than 8 months
@@ -678,6 +714,41 @@ def check_us15_fewer_than_15_siblings(families):
             ))
 
     return errors
+
+
+def extract_last_name(name):
+    """Return the surname inside '/' delimiters, or empty string if missing."""
+    parts = name.split("/")
+    return parts[1].strip() if len(parts) >= 2 else ""
+
+
+def check_us16_male_last_names(individuals, families):
+    """US16: All male members of a family should have the same last name."""
+    errors = []
+
+    for family in families.values():
+        father = individuals.get(family.husb)
+        if father is None or not father.name:
+            continue
+
+        family_last_name = extract_last_name(father.name)
+        if not family_last_name:
+            continue
+
+        for child_id in family.chil:
+            child = individuals.get(child_id)
+            if child and child.sex == "M" and child.name:
+                child_last_name = extract_last_name(child.name)
+                if child_last_name and child_last_name != family_last_name:
+                    errors.append((
+                        child.line_no,
+                        f"ERROR: FAMILY: US16: {child.line_no}: {family.id}: "
+                        f"Male child ({child.id}, '{child.name}') has a different "
+                        f"last name than father ({father.id}, '{father.name}')"
+                    ))
+
+    return errors
+
 
 def check_us19_first_cousins_should_not_marry(individuals, families):
     """US19: First cousins should not marry."""
@@ -767,9 +838,11 @@ def run_all_checks(individuals, families):
     all_errors += check_us09_birth_before_death_of_parents(individuals, families)
     all_errors += check_us10_marriage_after_14(individuals, families)
     all_errors += check_us11_no_bigamy(individuals, families)
+    all_errors += check_us12_parents_not_too_old(individuals, families)
     all_errors += check_us13_siblings_spacing(individuals, families)
     all_errors += check_us14_multiple_births_le_5(individuals, families)
     all_errors += check_us15_fewer_than_15_siblings(families)
+    all_errors += check_us16_male_last_names(individuals, families)
     all_errors += check_us19_first_cousins_should_not_marry(individuals, families)
     all_errors += check_us23_unique_name_and_birth_date(individuals)
 
