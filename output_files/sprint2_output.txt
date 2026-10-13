@@ -1088,6 +1088,102 @@
 <-- 1|CHIL|Y|BQ14C10
 --> 1 CHIL BQ14C11
 <-- 1|CHIL|Y|BQ14C11
+--> 0 JB12H1 INDI
+<-- 0|INDI|Y|JB12H1
+--> 1 NAME Old /Father/
+<-- 1|NAME|Y|Old /Father/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1915
+<-- 2|DATE|Y|1 JAN 1915
+--> 1 FAMS JB12F1
+<-- 1|FAMS|Y|JB12F1
+--> 0 JB12W1 INDI
+<-- 0|INDI|Y|JB12W1
+--> 1 NAME Old /Mother/
+<-- 1|NAME|Y|Old /Mother/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1935
+<-- 2|DATE|Y|1 JAN 1935
+--> 1 FAMS JB12F1
+<-- 1|FAMS|Y|JB12F1
+--> 0 JB12C1 INDI
+<-- 0|INDI|Y|JB12C1
+--> 1 NAME Young /Old/
+<-- 1|NAME|Y|Young /Old/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JUN 2000
+<-- 2|DATE|Y|1 JUN 2000
+--> 1 FAMC JB12F1
+<-- 1|FAMC|Y|JB12F1
+--> 0 JB12F1 FAM
+<-- 0|FAM|Y|JB12F1
+--> 1 HUSB JB12H1
+<-- 1|HUSB|Y|JB12H1
+--> 1 WIFE JB12W1
+<-- 1|WIFE|Y|JB12W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1965
+<-- 2|DATE|Y|1 JUN 1965
+--> 1 CHIL JB12C1
+<-- 1|CHIL|Y|JB12C1
+--> 0 JB16H1 INDI
+<-- 0|INDI|Y|JB16H1
+--> 1 NAME John /Mismatch/
+<-- 1|NAME|Y|John /Mismatch/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1970
+<-- 2|DATE|Y|1 JAN 1970
+--> 1 FAMS JB16F1
+<-- 1|FAMS|Y|JB16F1
+--> 0 JB16W1 INDI
+<-- 0|INDI|Y|JB16W1
+--> 1 NAME Jane /Mismatch/
+<-- 1|NAME|Y|Jane /Mismatch/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1972
+<-- 2|DATE|Y|1 JAN 1972
+--> 1 FAMS JB16F1
+<-- 1|FAMS|Y|JB16F1
+--> 0 JB16C1 INDI
+<-- 0|INDI|Y|JB16C1
+--> 1 NAME Timmy /Different/
+<-- 1|NAME|Y|Timmy /Different/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JUN 2000
+<-- 2|DATE|Y|1 JUN 2000
+--> 1 FAMC JB16F1
+<-- 1|FAMC|Y|JB16F1
+--> 0 JB16F1 FAM
+<-- 0|FAM|Y|JB16F1
+--> 1 HUSB JB16H1
+<-- 1|HUSB|Y|JB16H1
+--> 1 WIFE JB16W1
+<-- 1|WIFE|Y|JB16W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1995
+<-- 2|DATE|Y|1 JUN 1995
+--> 1 CHIL JB16C1
+<-- 1|CHIL|Y|JB16C1
 --> 0 TRLR
 <-- 0|TRLR|Y|
 
@@ -1124,6 +1220,12 @@ Individuals
 | BQ14H2  | Father /Quintuplets/ | M      | 1960-01-01 | 66  | True  | NA         | NA         | {'BQ14F2'}           |
 | BQ14W1  | Mother /Sextuplets/  | F      | 1962-01-01 | 64  | True  | NA         | NA         | {'BQ14F1'}           |
 | BQ14W2  | Mother /Quintuplets/ | F      | 1962-01-01 | 64  | True  | NA         | NA         | {'BQ14F2'}           |
+| JB12C1  | Young /Old/          | F      | 2000-06-01 | 26  | True  | NA         | {'JB12F1'} | NA                   |
+| JB12H1  | Old /Father/         | M      | 1915-01-01 | 111 | True  | NA         | NA         | {'JB12F1'}           |
+| JB12W1  | Old /Mother/         | F      | 1935-01-01 | 91  | True  | NA         | NA         | {'JB12F1'}           |
+| JB16C1  | Timmy /Different/    | M      | 2000-06-01 | 26  | True  | NA         | {'JB16F1'} | NA                   |
+| JB16H1  | John /Mismatch/      | M      | 1970-01-01 | 56  | True  | NA         | NA         | {'JB16F1'}           |
+| JB16W1  | Jane /Mismatch/      | F      | 1972-01-01 | 54  | True  | NA         | NA         | {'JB16F1'}           |
 | MI11H   | Bigamy /Test/        | M      | 1970-01-01 | 56  | True  | NA         | NA         | {'MI11F1', 'MI11F2'} |
 | MI11W1  | First /Wife/         | F      | 1972-01-01 | 54  | True  | NA         | NA         | {'MI11F1'}           |
 | MI11W2  | Second /Wife/        | F      | 1975-01-01 | 51  | True  | NA         | NA         | {'MI11F2'}           |
@@ -1167,6 +1269,8 @@ Families
 | BQ10F2 | 1994-06-01 | NA         | BQ10H2     | Normal /Husband/     | BQ10W2  | Fourteen /Wife/      | NA                                                                                                                                                           |
 | BQ14F1 | 1985-06-01 | NA         | BQ14H1     | Father /Sextuplets/  | BQ14W1  | Mother /Sextuplets/  | {'BQ14C1', 'BQ14C2', 'BQ14C3', 'BQ14C4', 'BQ14C5', 'BQ14C6'}                                                                                                 |
 | BQ14F2 | 1985-06-01 | NA         | BQ14H2     | Father /Quintuplets/ | BQ14W2  | Mother /Quintuplets/ | {'BQ14C10', 'BQ14C11', 'BQ14C7', 'BQ14C8', 'BQ14C9'}                                                                                                         |
+| JB12F1 | 1965-06-01 | NA         | JB12H1     | Old /Father/         | JB12W1  | Old /Mother/         | {'JB12C1'}                                                                                                                                                    |
+| JB16F1 | 1995-06-01 | NA         | JB16H1     | John /Mismatch/      | JB16W1  | Jane /Mismatch/      | {'JB16C1'}                                                                                                                                                    |
 | MI11F1 | 1995-01-01 | NA         | MI11H      | Bigamy /Test/        | MI11W1  | First /Wife/         | NA                                                                                                                                                           |
 | MI11F2 | 2000-01-01 | NA         | MI11H      | Bigamy /Test/        | MI11W2  | Second /Wife/        | NA                                                                                                                                                           |
 | MI15F  | 1980-01-01 | NA         | MI15H      | Large /FamilyFather/ | MI15W   | Large /FamilyMother/ | {'MI15C1', 'MI15C10', 'MI15C11', 'MI15C12', 'MI15C13', 'MI15C14', 'MI15C15', 'MI15C2', 'MI15C3', 'MI15C4', 'MI15C5', 'MI15C6', 'MI15C7', 'MI15C8', 'MI15C9'} |
@@ -1197,3 +1301,6 @@ ERROR: INDIVIDUAL: US11: 368: MI11H: Bigamy detected - marriage in MI11F2 occurr
 ERROR: FAMILY: US15: 381: MI15F: Family has 15 children, which is not fewer than 15
 ERROR: FAMILY: US10: 417: BQ10F1: Husband (BQ10H1) born 1980-01-01 was 13 years old at marriage on 1993-06-01, younger than 14
 ERROR: FAMILY: US14: 481: BQ14F1: 6 siblings born at the same time on 1990-01-01, more than 5
+ERROR: FAMILY: US12: 569: JB12F1: Mother (JB12W1) born 1935-01-01 is 65 years older than child (JB12C1) born 2000-06-01 (>= 60)
+ERROR: FAMILY: US12: 569: JB12F1: Father (JB12H1) born 1915-01-01 is 85 years older than child (JB12C1) born 2000-06-01 (>= 80)
+ERROR: FAMILY: US16: 590: JB16F1: Male child (JB16C1, 'Timmy /Different/') has a different last name than father (JB16H1, 'John /Mismatch/')
