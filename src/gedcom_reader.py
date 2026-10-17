@@ -1,6 +1,6 @@
 """
 CS 555 - Agile Methods for Software Development Group 5 Assignment
-GEDCOM Project - Sprint 2
+GEDCOM Project - Sprint 3
 
 Reads a GEDCOM file line by line, validates each line's level/tag,
 and additionally stores the data about individuals and
@@ -120,6 +120,7 @@ class Individual:
         self.line_no = line_no
         self.name = ""
         self.sex = ""
+        self.sex_line = None
         self.birth_date = None
         self.birth_line = None
         self.death_date = None
@@ -186,6 +187,7 @@ def process_gedcom(filename):
                         current_indi.name = arguments
                     elif tag == "SEX":
                         current_indi.sex = arguments
+                        current_indi.sex_line = line_no
                     elif tag == "BIRT":
                         last_event = "BIRT"
                     elif tag == "DEAT":
@@ -749,6 +751,82 @@ def check_us16_male_last_names(individuals, families):
 
     return errors
 
+# Sprint 3 user story checks
+
+def check_us17_no_marriages_to_descendants(individuals, families):
+    """US17: Parents should not marry any of their descendants."""
+    errors = []
+
+    # Everyone's children, across every family they are a parent in
+    children_of = {}
+    for family in families.values():
+        for parent_id in (family.husb, family.wife):
+            if parent_id:
+                children_of.setdefault(parent_id, set()).update(family.chil)
+
+    def descendants_of(person_id):
+        # Children, grandchildren, and so on. The found set also keeps
+        # this from looping forever if the file has circular data.
+        found = set()
+        to_visit = list(children_of.get(person_id, ()))
+        while to_visit:
+            current = to_visit.pop()
+            if current in found:
+                continue
+            found.add(current)
+            to_visit.extend(children_of.get(current, ()))
+        return found
+
+    for family in families.values():
+        if not family.husb or not family.wife:
+            continue
+
+        line_no = family.married_line or family.line_no
+
+        if family.wife in descendants_of(family.husb):
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US17: {line_no}: {family.id}: "
+                f"Husband ({family.husb}) is married to his descendant, "
+                f"wife ({family.wife})"
+            ))
+
+        if family.husb in descendants_of(family.wife):
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US17: {line_no}: {family.id}: "
+                f"Wife ({family.wife}) is married to her descendant, "
+                f"husband ({family.husb})"
+            ))
+
+    return errors
+
+
+def check_us21_correct_gender_for_role(individuals, families):
+    """US21: Husband in family should be male and wife in family should be
+    female. People with no SEX record are skipped (nothing to compare)."""
+    errors = []
+
+    for family in families.values():
+        husband = individuals.get(family.husb)
+        if husband and husband.sex and husband.sex != "M":
+            line_no = husband.sex_line or husband.line_no
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US21: {line_no}: {family.id}: "
+                f"Husband ({husband.id}) should be male but is listed as {husband.sex}"
+            ))
+
+        wife = individuals.get(family.wife)
+        if wife and wife.sex and wife.sex != "F":
+            line_no = wife.sex_line or wife.line_no
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US21: {line_no}: {family.id}: "
+                f"Wife ({wife.id}) should be female but is listed as {wife.sex}"
+            ))
+
+    return errors
 
 def check_us19_first_cousins_should_not_marry(individuals, families):
     """US19: First cousins should not marry."""
@@ -843,7 +921,9 @@ def run_all_checks(individuals, families):
     all_errors += check_us14_multiple_births_le_5(individuals, families)
     all_errors += check_us15_fewer_than_15_siblings(families)
     all_errors += check_us16_male_last_names(individuals, families)
+    all_errors += check_us17_no_marriages_to_descendants(individuals, families)
     all_errors += check_us19_first_cousins_should_not_marry(individuals, families)
+    all_errors += check_us21_correct_gender_for_role(individuals, families)
     all_errors += check_us23_unique_name_and_birth_date(individuals)
 
     all_errors.sort(key=lambda pair: pair[0])

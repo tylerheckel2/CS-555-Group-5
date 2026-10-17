@@ -1,4 +1,4 @@
-"""Automated tests for all GEDCOM user stories implemented through Sprint 2.
+"""Automated tests for all GEDCOM user stories implemented through Sprint 3.
 
 Run from this folder with: python -m unittest -v test_gedcom
 Each test verifies the exact records that should be flagged by one user story.
@@ -7,13 +7,15 @@ Each test verifies the exact records that should be flagged by one user story.
 import contextlib
 import datetime
 import io
+import os
 from pathlib import Path
+import tempfile
 import unittest
 
 import gedcom_reader as gedcom
 
 
-TEST_FILE = Path(__file__).with_name("sprint2_test.ged")
+TEST_FILE = Path(__file__).with_name("sprint3_test.ged")
 TEST_DATE = datetime.date(2026, 10, 12)
 
 
@@ -92,6 +94,17 @@ class TestGEDCOMUserStories(unittest.TestCase):
     def test_us16_male_last_names(self):
         errors = gedcom.check_us16_male_last_names(self.individuals, self.families)
         self.assert_story_errors("US16", errors, ["JB16F1"])
+
+    # Sprint 3
+    def test_us17_no_marriages_to_descendants(self):
+        errors = gedcom.check_us17_no_marriages_to_descendants(self.individuals, self.families)
+        self.assert_story_errors("US17", errors, ["TH17AF2", "TH17BF2", "TH17CF3"])
+
+    def test_us21_correct_gender_for_role(self):
+        errors = gedcom.check_us21_correct_gender_for_role(self.individuals, self.families)
+        self.assert_story_errors("US21", errors, ["TH21F1", "TH21F2", "TH21F3", "TH21F3"])
+
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
