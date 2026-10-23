@@ -238,7 +238,7 @@
 2 DATE 1 JAN 1990
 1 FAMS TF9
 0 TC9 INDI
-1 NAME TooLate /Child/
+1 NAME TooLate /Father/
 1 SEX M
 1 BIRT
 2 DATE 1 JUN 1990
@@ -288,7 +288,7 @@
 2 DATE 1 JAN 1965
 1 FAMS TF13
 0 TC13A INDI
-1 NAME First /Sibling/
+1 NAME First /Thirteen/
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 1995
@@ -319,7 +319,7 @@
 2 DATE 1 JAN 1965
 1 FAMS TF13B
 0 TC13C INDI
-1 NAME Twin /One/
+1 NAME Twin /Twins/
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 2000
@@ -445,7 +445,7 @@
 2 DATE 1 JAN 1962
 1 FAMS BQ14F1
 0 BQ14C1 INDI
-1 NAME Sextuplet /One/
+1 NAME SextupletOne /Sextuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 1990
@@ -457,7 +457,7 @@
 2 DATE 1 JAN 1990
 1 FAMC BQ14F1
 0 BQ14C3 INDI
-1 NAME Sextuplet /Three/
+1 NAME SextupletThree /Sextuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 1990
@@ -469,7 +469,7 @@
 2 DATE 1 JAN 1990
 1 FAMC BQ14F1
 0 BQ14C5 INDI
-1 NAME Sextuplet /Five/
+1 NAME SextupletFive /Sextuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 JAN 1990
@@ -504,7 +504,7 @@
 2 DATE 1 JAN 1962
 1 FAMS BQ14F2
 0 BQ14C7 INDI
-1 NAME Quintuplet /One/
+1 NAME QuintupletOne /Quintuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 MAR 1992
@@ -516,7 +516,7 @@
 2 DATE 1 MAR 1992
 1 FAMC BQ14F2
 0 BQ14C9 INDI
-1 NAME Quintuplet /Three/
+1 NAME QuintupletThree /Quintuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 MAR 1992
@@ -528,7 +528,7 @@
 2 DATE 1 MAR 1992
 1 FAMC BQ14F2
 0 BQ14C11 INDI
-1 NAME Quintuplet /Five/
+1 NAME QuintupletFive /Quintuplets/
 1 SEX M
 1 BIRT
 2 DATE 1 MAR 1992
