@@ -809,7 +809,100 @@ def check_us17_no_marriages_to_descendants(individuals, families):
 
     return errors
 
+def get_parents_of_individual(ind_id, individuals, families):
+    """Helper: Returns a set of parent IDs for a given individual."""
+    parents = set()
+    ind = individuals.get(ind_id)
+    if ind and hasattr(ind, 'famc') and ind.famc:
+        for famc_id in ind.famc:
+            fam = families.get(famc_id)
+            if fam:
+                if getattr(fam, 'husb', None): parents.add(fam.husb)
+                if getattr(fam, 'wife', None): parents.add(fam.wife)
+    return parents
 
+def get_siblings_of_individual(ind_id, individuals, families):
+    """Helper: Returns a set of sibling IDs for a given individual."""
+    siblings = set()
+    ind = individuals.get(ind_id)
+    if ind and hasattr(ind, 'famc') and ind.famc:
+        for famc_id in ind.famc:
+            fam = families.get(famc_id)
+            if fam and hasattr(fam, 'chil'):
+                for child_id in fam.chil:
+                    if child_id != ind_id:
+                        siblings.add(child_id)
+    return siblings
+
+def check_us20_aunts_and_uncles(individuals, families):
+    """US20: Aunts and uncles should not marry their nieces or nephews."""
+    errors = []
+    for family in families.values():
+        husb_id = getattr(family, 'husb', None)
+        wife_id = getattr(family, 'wife', None)
+
+        if not husb_id or not wife_id:
+            continue
+
+        # Check if Husband is Uncle
+        wife_parents = get_parents_of_individual(wife_id, individuals, families)
+        for parent_id in wife_parents:
+            parent_siblings = get_siblings_of_individual(parent_id, individuals, families)
+            if husb_id in parent_siblings:
+                line = getattr(family, 'line_no', 0)
+                errors.append((
+                    line,
+                    f"ERROR: FAMILY: US20: {line}: {family.id}: "
+                    f"Husband ({husb_id}) is the uncle of Wife ({wife_id})"
+                ))
+
+        # Check if Wife is Aunt
+        husb_parents = get_parents_of_individual(husb_id, individuals, families)
+        for parent_id in husb_parents:
+            parent_siblings = get_siblings_of_individual(parent_id, individuals, families)
+            if wife_id in parent_siblings:
+                line = getattr(family, 'line_no', 0)
+                errors.append((
+                    line,
+                    f"ERROR: FAMILY: US20: {line}: {family.id}: "
+                    f"Wife ({wife_id}) is the aunt of Husband ({husb_id})"
+                ))
+
+    return errors
+
+def check_us24_unique_families_by_spouses(individuals, families):
+    """US24: No more than one family with the same spouses by name and the same marriage date."""
+    errors = []
+    seen_families = {}
+
+    for family in families.values():
+        # Check that we have a husband, wife, and marriage date
+        if not getattr(family, 'husb', None) or not getattr(family, 'wife', None) or not getattr(family, 'marr_date', None):
+            continue
+
+        husb = individuals.get(family.husb)
+        wife = individuals.get(family.wife)
+
+        if not husb or not wife or not getattr(husb, 'name', None) or not getattr(wife, 'name', None):
+            continue
+
+        # Create composite key
+        fam_key = (husb.name, wife.name, family.marr_date)
+
+        if fam_key in seen_families:
+            original_fam_id = seen_families[fam_key]
+            line = getattr(family, 'line_no', 0)
+            errors.append((
+                line,
+                f"ERROR: FAMILY: US24: {line}: {family.id}: "
+                f"Family shares identical spouses ({husb.name}, {wife.name}) "
+                f"and marriage date ({family.marr_date}) with Family ({original_fam_id})"
+            ))
+        else:
+            seen_families[fam_key] = family.id
+
+    return errors
+ 
 def check_us21_correct_gender_for_role(individuals, families):
     """US21: Husband in family should be male and wife in family should be
     female. People with no SEX record are skipped (nothing to compare)."""
@@ -988,6 +1081,9 @@ def run_all_checks(individuals, families):
     all_errors += check_us14_multiple_births_le_5(individuals, families)
     all_errors += check_us15_fewer_than_15_siblings(families)
     all_errors += check_us16_male_last_names(individuals, families)
+    # Sprint 3
+    all_errors += check_us20_aunts_and_uncles(individuals, families)
+    all_errors += check_us24_unique_families_by_spouses(individuals, families)
     all_errors += check_us17_no_marriages_to_descendants(individuals, families)
     all_errors += check_us19_first_cousins_should_not_marry(individuals, families)
     all_errors += check_us21_correct_gender_for_role(individuals, families)
