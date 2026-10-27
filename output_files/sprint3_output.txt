@@ -1554,6 +1554,136 @@
 <-- 1|MARR|Y|
 --> 2 DATE 1 JAN 1985
 <-- 2|DATE|Y|1 JAN 1985
+--> 0 BQ18H1 INDI
+<-- 0|INDI|Y|BQ18H1
+--> 1 NAME Father /Siblings/
+<-- 1|NAME|Y|Father /Siblings/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1950
+<-- 2|DATE|Y|1 JAN 1950
+--> 1 FAMS BQ18F1
+<-- 1|FAMS|Y|BQ18F1
+--> 0 BQ18W1 INDI
+<-- 0|INDI|Y|BQ18W1
+--> 1 NAME Mother /Siblings/
+<-- 1|NAME|Y|Mother /Siblings/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1952
+<-- 2|DATE|Y|1 JAN 1952
+--> 1 FAMS BQ18F1
+<-- 1|FAMS|Y|BQ18F1
+--> 0 BQ18C1 INDI
+<-- 0|INDI|Y|BQ18C1
+--> 1 NAME Brother /Siblings/
+<-- 1|NAME|Y|Brother /Siblings/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1975
+<-- 2|DATE|Y|1 JAN 1975
+--> 1 FAMS BQ18F2
+<-- 1|FAMS|Y|BQ18F2
+--> 1 FAMC BQ18F1
+<-- 1|FAMC|Y|BQ18F1
+--> 0 BQ18C2 INDI
+<-- 0|INDI|Y|BQ18C2
+--> 1 NAME Sister /Siblings/
+<-- 1|NAME|Y|Sister /Siblings/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1978
+<-- 2|DATE|Y|1 JAN 1978
+--> 1 FAMS BQ18F2
+<-- 1|FAMS|Y|BQ18F2
+--> 1 FAMC BQ18F1
+<-- 1|FAMC|Y|BQ18F1
+--> 0 BQ18F1 FAM
+<-- 0|FAM|Y|BQ18F1
+--> 1 HUSB BQ18H1
+<-- 1|HUSB|Y|BQ18H1
+--> 1 WIFE BQ18W1
+<-- 1|WIFE|Y|BQ18W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1972
+<-- 2|DATE|Y|1 JUN 1972
+--> 1 CHIL BQ18C1
+<-- 1|CHIL|Y|BQ18C1
+--> 1 CHIL BQ18C2
+<-- 1|CHIL|Y|BQ18C2
+--> 0 BQ18F2 FAM
+<-- 0|FAM|Y|BQ18F2
+--> 1 HUSB BQ18C1
+<-- 1|HUSB|Y|BQ18C1
+--> 1 WIFE BQ18C2
+<-- 1|WIFE|Y|BQ18C2
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 2000
+<-- 2|DATE|Y|1 JUN 2000
+--> 0 BQ22H1 INDI
+<-- 0|INDI|Y|BQ22H1
+--> 1 NAME Husband /Unique/
+<-- 1|NAME|Y|Husband /Unique/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1975
+<-- 2|DATE|Y|1 JAN 1975
+--> 1 FAMS BQ22F1
+<-- 1|FAMS|Y|BQ22F1
+--> 0 BQ22W1 INDI
+<-- 0|INDI|Y|BQ22W1
+--> 1 NAME Wife /Unique/
+<-- 1|NAME|Y|Wife /Unique/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1977
+<-- 2|DATE|Y|1 JAN 1977
+--> 1 FAMS BQ22F1
+<-- 1|FAMS|Y|BQ22F1
+--> 0 BQ22W1 INDI
+<-- 0|INDI|Y|BQ22W1
+--> 1 NAME Duplicate /Person/
+<-- 1|NAME|Y|Duplicate /Person/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1980
+<-- 2|DATE|Y|1 JAN 1980
+--> 0 BQ22F1 FAM
+<-- 0|FAM|Y|BQ22F1
+--> 1 HUSB BQ22H1
+<-- 1|HUSB|Y|BQ22H1
+--> 1 WIFE BQ22W1
+<-- 1|WIFE|Y|BQ22W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 2000
+<-- 2|DATE|Y|1 JUN 2000
+--> 0 BQ22F1 FAM
+<-- 0|FAM|Y|BQ22F1
+--> 1 HUSB BQ22H1
+<-- 1|HUSB|Y|BQ22H1
+--> 1 WIFE BQ22W1
+<-- 1|WIFE|Y|BQ22W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 2005
+<-- 2|DATE|Y|1 JUN 2005
 --> 0 TRLR
 <-- 0|TRLR|Y|
 
@@ -1590,6 +1720,12 @@ Individuals
 | BQ14H2  | Father /Quintuplets/           | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ14F2'}             |
 | BQ14W1  | Mother /Sextuplets/            | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F1'}             |
 | BQ14W2  | Mother /Quintuplets/           | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F2'}             |
+| BQ18C1  | Brother /Siblings/             | M      | 1975-01-01 | 51  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
+| BQ18C2  | Sister /Siblings/              | F      | 1978-01-01 | 48  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
+| BQ18H1  | Father /Siblings/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'BQ18F1'}             |
+| BQ18W1  | Mother /Siblings/              | F      | 1952-01-01 | 74  | True  | NA         | NA          | {'BQ18F1'}             |
+| BQ22H1  | Husband /Unique/               | M      | 1975-01-01 | 51  | True  | NA         | NA          | {'BQ22F1'}             |
+| BQ22W1  | Wife /Unique/                  | F      | 1977-01-01 | 49  | True  | NA         | NA          | {'BQ22F1'}             |
 | JB12C1  | Young /Old/                    | F      | 2000-06-01 | 26  | True  | NA         | {'JB12F1'}  | NA                     |
 | JB12H1  | Old /Father/                   | M      | 1915-01-01 | 111 | True  | NA         | NA          | {'JB12F1'}             |
 | JB12W1  | Old /Mother/                   | F      | 1935-01-01 | 91  | True  | NA         | NA          | {'JB12F1'}             |
@@ -1658,6 +1794,9 @@ Families
 | BQ10F2  | 1994-06-01 | NA         | BQ10H2     | Normal /Husband/         | BQ10W2  | Fourteen /Wife/                | NA                                                                                                                                                           |
 | BQ14F1  | 1985-06-01 | NA         | BQ14H1     | Father /Sextuplets/      | BQ14W1  | Mother /Sextuplets/            | {'BQ14C1', 'BQ14C2', 'BQ14C3', 'BQ14C4', 'BQ14C5', 'BQ14C6'}                                                                                                 |
 | BQ14F2  | 1985-06-01 | NA         | BQ14H2     | Father /Quintuplets/     | BQ14W2  | Mother /Quintuplets/           | {'BQ14C10', 'BQ14C11', 'BQ14C7', 'BQ14C8', 'BQ14C9'}                                                                                                         |
+| BQ18F1  | 1972-06-01 | NA         | BQ18H1     | Father /Siblings/        | BQ18W1  | Mother /Siblings/              | {'BQ18C1', 'BQ18C2'}                                                                                                                                         |
+| BQ18F2  | 2000-06-01 | NA         | BQ18C1     | Brother /Siblings/       | BQ18C2  | Sister /Siblings/              | NA                                                                                                                                                           |
+| BQ22F1  | 2000-06-01 | NA         | BQ22H1     | Husband /Unique/         | BQ22W1  | Wife /Unique/                  | NA                                                                                                                                                           |
 | JB12F1  | 1965-06-01 | NA         | JB12H1     | Old /Father/             | JB12W1  | Old /Mother/                   | {'JB12C1'}                                                                                                                                                   |
 | JB16F1  | 1995-06-01 | NA         | JB16H1     | John /Mismatch/          | JB16W1  | Jane /Mismatch/                | {'JB16C1'}                                                                                                                                                   |
 | MI11F1  | 1995-01-01 | NA         | MI11H      | Bigamy /Test/            | MI11W1  | First /Wife/                   | NA                                                                                                                                                           |
@@ -1711,3 +1850,6 @@ ERROR: FAMILY: US21: 714: TH21F1: Husband (TH21H1) should be male but is listed 
 ERROR: FAMILY: US21: 737: TH21F2: Wife (TH21W2) should be female but is listed as M
 ERROR: FAMILY: US21: 748: TH21F3: Husband (TH21H3) should be male but is listed as F
 ERROR: FAMILY: US21: 754: TH21F3: Wife (TH21W3) should be female but is listed as M
+ERROR: FAMILY: US18: 816: BQ18F2: Husband (BQ18C1) and wife (BQ18C2) are siblings
+ERROR: INDIVIDUAL: US22: 829: BQ22W1: Individual ID BQ22W1 is already used by the individual on line 823
+ERROR: FAMILY: US22: 839: BQ22F1: Family ID BQ22F1 is already used by the family on line 834
