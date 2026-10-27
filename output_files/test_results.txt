@@ -13,9 +13,11 @@ test_us14_multiple_births_le_5 (test_gedcom.TestGEDCOMUserStories.test_us14_mult
 test_us15_fewer_than_15_siblings (test_gedcom.TestGEDCOMUserStories.test_us15_fewer_than_15_siblings) ... ok
 test_us16_male_last_names (test_gedcom.TestGEDCOMUserStories.test_us16_male_last_names) ... ok
 test_us17_no_marriages_to_descendants (test_gedcom.TestGEDCOMUserStories.test_us17_no_marriages_to_descendants) ... ok
+test_us18_siblings_should_not_marry (test_gedcom.TestGEDCOMUserStories.test_us18_siblings_should_not_marry) ... ok
 test_us21_correct_gender_for_role (test_gedcom.TestGEDCOMUserStories.test_us21_correct_gender_for_role) ... ok
+test_us22_unique_ids (test_gedcom.TestGEDCOMUserStories.test_us22_unique_ids) ... ok
 
 ----------------------------------------------------------------------
-Ran 16 tests in 0.006s
+Ran 18 tests in 0.006s
 
 OK
