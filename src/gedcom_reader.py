@@ -128,6 +128,7 @@ class Individual:
         self.alive = True
         self.famc = []
         self.fams = []
+        self.duplicate_lines = []
 
 
 class Family:
@@ -141,6 +142,7 @@ class Family:
         self.husb = None
         self.wife = None
         self.chil = []
+        self.duplicate_lines = []
 
 # Build the individuals/families collections from the parsed lines
 
@@ -176,10 +178,16 @@ def process_gedcom(filename):
 
                 if tag == "INDI":
                     current_indi = Individual(arguments, line_no)
-                    individuals[arguments] = current_indi
+                    if arguments in individuals:
+                        individuals[arguments].duplicate_lines.append(line_no)
+                    else:
+                        individuals[arguments] = current_indi
                 elif tag == "FAM":
                     current_fam = Family(arguments, line_no)
-                    families[arguments] = current_fam
+                    if arguments in families:
+                        families[arguments].duplicate_lines.append(line_no)
+                    else:
+                        families[arguments] = current_fam
 
             elif level == 1:
                 if current_indi is not None:
@@ -896,6 +904,65 @@ def check_us23_unique_name_and_birth_date(individuals):
             seen[key] = person
 
     return errors
+
+
+def check_us18_siblings_should_not_marry(individuals, families):
+    """US18: Siblings should not marry one another."""
+    errors = []
+
+    # Find each person's parents using the family records
+    parents = {}
+
+    for family in families.values():
+        for child_id in family.chil:
+            parents.setdefault(child_id, set()).update(
+                parent_id
+                for parent_id in (family.husb, family.wife)
+                if parent_id in individuals
+            )
+
+    for family in families.values():
+        if not family.husb or not family.wife:
+            continue
+
+        # Siblings share at least one parent (this includes half-siblings)
+        shared_parents = parents.get(family.husb, set()) & parents.get(family.wife, set())
+
+        if shared_parents:
+            line_no = family.married_line or family.line_no
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US18: {line_no}: {family.id}: "
+                f"Husband ({family.husb}) and wife ({family.wife}) are siblings"
+            ))
+
+    return errors
+
+
+def check_us22_unique_ids(individuals, families):
+    """US22: All individual IDs should be unique and all family IDs
+    should be unique."""
+    errors = []
+
+    for person in individuals.values():
+        for line_no in person.duplicate_lines:
+            errors.append((
+                line_no,
+                f"ERROR: INDIVIDUAL: US22: {line_no}: {person.id}: "
+                f"Individual ID {person.id} is already used by the individual "
+                f"on line {person.line_no}"
+            ))
+
+    for family in families.values():
+        for line_no in family.duplicate_lines:
+            errors.append((
+                line_no,
+                f"ERROR: FAMILY: US22: {line_no}: {family.id}: "
+                f"Family ID {family.id} is already used by the family "
+                f"on line {family.line_no}"
+            ))
+
+    return errors
   
 def run_all_checks(individuals, families):
     """Run every user story check implemented so far (Sprint 1 and
@@ -925,6 +992,8 @@ def run_all_checks(individuals, families):
     all_errors += check_us19_first_cousins_should_not_marry(individuals, families)
     all_errors += check_us21_correct_gender_for_role(individuals, families)
     all_errors += check_us23_unique_name_and_birth_date(individuals)
+    all_errors += check_us18_siblings_should_not_marry(individuals, families)
+    all_errors += check_us22_unique_ids(individuals, families)
 
     all_errors.sort(key=lambda pair: pair[0])
 
