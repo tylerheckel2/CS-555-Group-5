@@ -104,6 +104,14 @@ class TestGEDCOMUserStories(unittest.TestCase):
         errors = gedcom.check_us21_correct_gender_for_role(self.individuals, self.families)
         self.assert_story_errors("US21", errors, ["TH21F1", "TH21F2", "TH21F3", "TH21F3"])
 
+    def test_us18_siblings_should_not_marry(self):
+        errors = gedcom.check_us18_siblings_should_not_marry(self.individuals, self.families)
+        self.assert_story_errors("US18", errors, ["BQ18F2"])
+
+    def test_us22_unique_ids(self):
+        errors = gedcom.check_us22_unique_ids(self.individuals, self.families)
+        self.assert_story_errors("US22", errors, ["BQ22W1", "BQ22F1"])
+
 
 
 if __name__ == "__main__":
