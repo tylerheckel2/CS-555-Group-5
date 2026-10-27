@@ -124,5 +124,13 @@ class TestGEDCOMUserStories(unittest.TestCase):
         )
         self.assert_story_errors("US23", errors, ["MI23I2"])
 
+    def test_us20_aunts_and_uncles(self):
+        errors = gedcom.check_us20_aunts_and_uncles(self.individuals, self.families)
+        self.assert_story_errors("US20", errors, ["JB20F3"])
+
+    def test_us24_unique_families_by_spouses(self):
+        errors = gedcom.check_us24_unique_families_by_spouses(self.individuals, self.families)
+        self.assert_story_errors("US24", errors, ["JB24F2"])
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)
