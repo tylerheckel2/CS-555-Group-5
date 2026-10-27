@@ -116,13 +116,13 @@ class TestGEDCOMUserStories(unittest.TestCase):
         errors = gedcom.check_us19_first_cousins_should_not_marry(
             self.individuals, self.families
         )
-        self.assert_story_errors("US19", errors, ["EXPECTED_FAMILY_ID"])
+        self.assert_story_errors("US19", errors, ["MI19F4"])
 
     def test_us23_unique_name_and_birth_date(self):
         errors = gedcom.check_us23_unique_name_and_birth_date(
             self.individuals
         )
-        self.assert_story_errors("US23", errors, ["EXPECTED_INDIVIDUAL_ID"])
+        self.assert_story_errors("US23", errors, ["MI23I2"])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
