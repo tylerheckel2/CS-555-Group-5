@@ -107,12 +107,22 @@ class TestGEDCOMUserStories(unittest.TestCase):
     def test_us18_siblings_should_not_marry(self):
         errors = gedcom.check_us18_siblings_should_not_marry(self.individuals, self.families)
         self.assert_story_errors("US18", errors, ["BQ18F2"])
-
+    
     def test_us22_unique_ids(self):
         errors = gedcom.check_us22_unique_ids(self.individuals, self.families)
         self.assert_story_errors("US22", errors, ["BQ22W1", "BQ22F1"])
 
+    def test_us19_first_cousins_should_not_marry(self):
+        errors = gedcom.check_us19_first_cousins_should_not_marry(
+            self.individuals, self.families
+        )
+        self.assert_story_errors("US19", errors, ["EXPECTED_FAMILY_ID"])
 
+    def test_us23_unique_name_and_birth_date(self):
+        errors = gedcom.check_us23_unique_name_and_birth_date(
+            self.individuals
+        )
+        self.assert_story_errors("US23", errors, ["EXPECTED_INDIVIDUAL_ID"])
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
