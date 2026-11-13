@@ -15,7 +15,7 @@ import unittest
 import gedcom_reader as gedcom
 
 
-TEST_FILE = Path(__file__).with_name("sprint3_test.ged")
+TEST_FILE = Path(__file__).with_name("sprint4_test.ged")
 TEST_DATE = datetime.date(2026, 10, 12)
 
 
@@ -93,7 +93,7 @@ class TestGEDCOMUserStories(unittest.TestCase):
 
     def test_us16_male_last_names(self):
         errors = gedcom.check_us16_male_last_names(self.individuals, self.families)
-        self.assert_story_errors("US16", errors, ["JB16F1"])
+        self.assert_story_errors("US16", errors, ["JB16F1", "JB20F1"])
 
     # Sprint 3
     def test_us17_no_marriages_to_descendants(self):
@@ -122,7 +122,7 @@ class TestGEDCOMUserStories(unittest.TestCase):
         errors = gedcom.check_us23_unique_name_and_birth_date(
             self.individuals
         )
-        self.assert_story_errors("US23", errors, ["MI23I2"])
+        self.assert_story_errors("US23", errors, ["JB24H2", "JB24W2", "MI23I2", "TH25C2"])
 
     def test_us20_aunts_and_uncles(self):
         errors = gedcom.check_us20_aunts_and_uncles(self.individuals, self.families)
@@ -131,6 +131,33 @@ class TestGEDCOMUserStories(unittest.TestCase):
     def test_us24_unique_families_by_spouses(self):
         errors = gedcom.check_us24_unique_families_by_spouses(self.individuals, self.families)
         self.assert_story_errors("US24", errors, ["JB24F2"])
+
+    # Sprint 4
+    def test_us25_unique_first_names_in_families(self):
+        errors = gedcom.check_us25_unique_first_names_in_families(self.individuals, self.families)
+        self.assert_story_errors("US25", errors, ["TH25F1"])
+
+    def test_us29_list_deceased(self):
+        deceased = gedcom.get_deceased(self.individuals)
+        ids = [person.id for person in deceased]
+        self.assertEqual(ids, sorted(ids))
+        for known_deceased in ("@I1@", "T2", "T4", "TH17AW"):
+            self.assertIn(known_deceased, ids)
+        for known_living in ("@I2@", "T1", "T3", "TH17AH"):
+            self.assertNotIn(known_living, ids)
+        self.assertTrue(all(not person.alive for person in deceased))
+        self.assertEqual(len(deceased),
+                         sum(1 for person in self.individuals.values() if not person.alive))
+
+    def test_us29_printed_list_has_header_and_deceased_people(self):
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            gedcom.print_deceased(self.individuals)
+        text = out.getvalue()
+        self.assertIn("US29: List of Deceased Individuals", text)
+        self.assertIn("Age at Death", text)
+        self.assertIn("John /Anderson/", text)
+        self.assertNotIn("Mary /Whitfield/", text)
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,6 +1,6 @@
 """
 CS 555 - Agile Methods for Software Development Group 5 Assignment
-GEDCOM Project - Sprint 3
+GEDCOM Project - Sprint 4
 
 Reads a GEDCOM file line by line, validates each line's level/tag,
 and additionally stores the data about individuals and
@@ -877,7 +877,7 @@ def check_us24_unique_families_by_spouses(individuals, families):
 
     for family in families.values():
         # Check that we have a husband, wife, and marriage date
-        if not getattr(family, 'husb', None) or not getattr(family, 'wife', None) or not getattr(family, 'marr_date', None):
+        if not getattr(family, 'husb', None) or not getattr(family, 'wife', None) or not getattr(family, 'married_date', None):
             continue
 
         husb = individuals.get(family.husb)
@@ -887,7 +887,7 @@ def check_us24_unique_families_by_spouses(individuals, families):
             continue
 
         # Create composite key
-        fam_key = (husb.name, wife.name, family.marr_date)
+        fam_key = (husb.name, wife.name, family.married_date)
 
         if fam_key in seen_families:
             original_fam_id = seen_families[fam_key]
@@ -896,7 +896,7 @@ def check_us24_unique_families_by_spouses(individuals, families):
                 line,
                 f"ERROR: FAMILY: US24: {line}: {family.id}: "
                 f"Family shares identical spouses ({husb.name}, {wife.name}) "
-                f"and marriage date ({family.marr_date}) with Family ({original_fam_id})"
+                f"and marriage date ({family.married_date}) with Family ({original_fam_id})"
             ))
         else:
             seen_families[fam_key] = family.id
@@ -1056,10 +1056,74 @@ def check_us22_unique_ids(individuals, families):
             ))
 
     return errors
+
+
+# Sprint 4 user stories
+
+def check_us25_unique_first_names_in_families(individuals, families):
+    """US25: No more than one child with the same name and birth date
+    should appear in a family."""
+    errors = []
+
+    for family in families.values():
+        seen = {}
+
+        for child_id in dict.fromkeys(family.chil):
+            child = individuals.get(child_id)
+            if child is None or not child.name or child.birth_date is None:
+                continue
+
+            key = (" ".join(child.name.split()).lower(), child.birth_date)
+
+            if key in seen:
+                original = seen[key]
+                line_no = child.birth_line or child.line_no
+                errors.append((
+                    line_no,
+                    f"ERROR: FAMILY: US25: {line_no}: {family.id}: "
+                    f"Child ({child.id}) has the same name ({child.name}) and "
+                    f"birth date ({child.birth_date}) as sibling ({original.id})"
+                ))
+            else:
+                seen[key] = child
+
+    return errors
+
+
+def get_deceased(individuals):
+    """US29: Return every deceased individual (anyone with a DEAT record),
+    sorted by ID."""
+    return [individuals[indi_id] for indi_id in sorted(individuals)
+            if not individuals[indi_id].alive]
+
+
+def print_deceased(individuals):
+    """US29: List all deceased individuals in a GEDCOM file."""
+    headers = ["ID", "Name", "Birthday", "Death", "Age at Death"]
+    rows = []
+
+    for person in get_deceased(individuals):
+        age = calculate_age(person.birth_date, person.death_date)
+        rows.append([
+            person.id,
+            person.name,
+            person.birth_date.isoformat() if person.birth_date else "NA",
+            person.death_date.isoformat() if person.death_date else "NA",
+            age if age is not None else "NA",
+        ])
+
+    print()
+    print("US29: List of Deceased Individuals")
+    if rows:
+        print_table(headers, rows)
+    else:
+        print("No deceased individuals found.")
+
+
   
 def run_all_checks(individuals, families):
-    """Run every user story check implemented so far (Sprint 1 and
-    Sprint 2) and print the results together, sorted by line number
+    """Run every user story check implemented so far (Sprint 1,
+    Sprint 2, Sprint 3, and Sprint 4) and print the results together, sorted by line number
     so they read in file order."""
 
     today = datetime.date.today()
@@ -1091,10 +1155,13 @@ def run_all_checks(individuals, families):
     all_errors += check_us18_siblings_should_not_marry(individuals, families)
     all_errors += check_us22_unique_ids(individuals, families)
 
+    # Sprint 4
+    all_errors += check_us25_unique_first_names_in_families(individuals, families)
+
     all_errors.sort(key=lambda pair: pair[0])
 
     print()
-    print("User Story Results (Sprint 1 + Sprint 2 + Sprint 3)")
+    print("User Story Results (Sprint 1 + Sprint 2 + Sprint 3 + Sprint 4)")
     print("-" * 70)
     if not all_errors:
         print("No errors found.")
