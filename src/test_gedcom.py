@@ -1,4 +1,4 @@
-"""Automated tests for all GEDCOM user stories implemented through Sprint 3.
+"""Automated tests for all GEDCOM user stories implemented through Sprint 4.
 
 Run from this folder with: python -m unittest -v test_gedcom
 Each test verifies the exact records that should be flagged by one user story.
@@ -160,28 +160,27 @@ class TestGEDCOMUserStories(unittest.TestCase):
         self.assertNotIn("Mary /Whitfield/", text)
         
     def test_us27_include_individual_ages(self):
-        ages = gedcom.get_individual_ages(self.individuals, TEST_DATE)
-
-        self.assertEqual(
-            ages["T1"],
-            gedcom.calculate_age(
-                self.individuals["T1"].birth_date,
-                TEST_DATE
-            )
+        ages = gedcom.get_individual_ages(
+            self.individuals, TEST_DATE
         )
 
-        self.assertEqual(
-            ages["T2"],
-            gedcom.calculate_age(
-                self.individuals["T2"].birth_date,
-                self.individuals["T2"].death_date
-            )
-        )
+        # Living individual
+        self.assertEqual(ages["@I6@"], 45)
 
+        # Deceased individual
+        self.assertEqual(ages["@I1@"], 33)
+
+        # Missing birth date
         self.assertIsNone(
             gedcom.calculate_age(None, TEST_DATE)
         )
 
+        # Every individual should have an age entry
+        self.assertEqual(
+            len(ages),
+            len(self.individuals)
+        )
+        
     # US31 - List Living Single (MI)
     def test_us31_list_living_single(self):
         people = gedcom.get_living_single(
@@ -192,6 +191,14 @@ class TestGEDCOMUserStories(unittest.TestCase):
 
         self.assertEqual(ids, sorted(ids))
 
+        # Positive test
+        self.assertIn("MI31_SINGLE", ids)
+
+        # Negative tests
+        self.assertNotIn("MI31_MARRIED", ids)
+        self.assertNotIn("MI31_DECEASED", ids)
+        self.assertNotIn("MI31_YOUNG", ids)
+
         for person in people:
             self.assertTrue(person.alive)
 
@@ -200,6 +207,7 @@ class TestGEDCOMUserStories(unittest.TestCase):
                 datetime.date.today()
             )
 
+            self.assertIsNotNone(age)
             self.assertGreater(age, 30)
 
             self.assertFalse(any(
@@ -207,6 +215,7 @@ class TestGEDCOMUserStories(unittest.TestCase):
                 and person.id in (family.husb, family.wife)
                 for family in self.families.values()
             ))
+
 
 
 if __name__ == "__main__":
