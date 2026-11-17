@@ -158,6 +158,56 @@ class TestGEDCOMUserStories(unittest.TestCase):
         self.assertIn("Age at Death", text)
         self.assertIn("John /Anderson/", text)
         self.assertNotIn("Mary /Whitfield/", text)
+        
+    def test_us27_include_individual_ages(self):
+        ages = gedcom.get_individual_ages(self.individuals, TEST_DATE)
+
+        self.assertEqual(
+            ages["T1"],
+            gedcom.calculate_age(
+                self.individuals["T1"].birth_date,
+                TEST_DATE
+            )
+        )
+
+        self.assertEqual(
+            ages["T2"],
+            gedcom.calculate_age(
+                self.individuals["T2"].birth_date,
+                self.individuals["T2"].death_date
+            )
+        )
+
+        self.assertIsNone(
+            gedcom.calculate_age(None, TEST_DATE)
+        )
+
+    # US31 - List Living Single (MI)
+    def test_us31_list_living_single(self):
+        people = gedcom.get_living_single(
+            self.individuals, self.families
+        )
+
+        ids = [person.id for person in people]
+
+        self.assertEqual(ids, sorted(ids))
+
+        for person in people:
+            self.assertTrue(person.alive)
+
+            age = gedcom.calculate_age(
+                person.birth_date,
+                datetime.date.today()
+            )
+
+            self.assertGreater(age, 30)
+
+            self.assertFalse(any(
+                family.married_date is not None
+                and person.id in (family.husb, family.wife)
+                for family in self.families.values()
+            ))
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
