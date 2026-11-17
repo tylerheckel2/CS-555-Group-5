@@ -1087,6 +1087,86 @@ def check_us25_unique_first_names_in_families(individuals, families):
     return errors
 
 
+def check_us26_corresponding_entries(individuals, families):
+    """US26: All family roles (spouse, child) specified in 
+    an individual record should have corresponding entries 
+    in the corresponding family records."""
+    errors = []
+
+    # Individual records -> family records
+    for person in individuals.values():
+        for fam_id in dict.fromkeys(person.fams):
+            family = families.get(fam_id)
+            if family is None:
+                errors.append((
+                    person.line_no,
+                    f"ERROR: INDIVIDUAL: US26: {person.line_no}: {person.id}: "
+                    f"Spouse in family {fam_id}, which does not exist"
+                ))
+            elif person.id not in (family.husb, family.wife):
+                errors.append((
+                    person.line_no,
+                    f"ERROR: INDIVIDUAL: US26: {person.line_no}: {person.id}: "
+                    f"Spouse in family {fam_id}, but family {fam_id} does not "
+                    f"list them as husband or wife"
+                ))
+
+        for fam_id in dict.fromkeys(person.famc):
+            family = families.get(fam_id)
+            if family is None:
+                errors.append((
+                    person.line_no,
+                    f"ERROR: INDIVIDUAL: US26: {person.line_no}: {person.id}: "
+                    f"Child in family {fam_id}, which does not exist"
+                ))
+            elif person.id not in family.chil:
+                errors.append((
+                    person.line_no,
+                    f"ERROR: INDIVIDUAL: US26: {person.line_no}: {person.id}: "
+                    f"Child in family {fam_id}, but family {fam_id} does not "
+                    f"list them as a child"
+                ))
+
+    # Family records -> individual records
+    for family in families.values():
+        for role, spouse_id in (("Husband", family.husb), ("Wife", family.wife)):
+            if not spouse_id:
+                continue
+
+            spouse = individuals.get(spouse_id)
+            if spouse is None:
+                errors.append((
+                    family.line_no,
+                    f"ERROR: FAMILY: US26: {family.line_no}: {family.id}: "
+                    f"{role} ({spouse_id}) does not exist"
+                ))
+            elif family.id not in spouse.fams:
+                errors.append((
+                    family.line_no,
+                    f"ERROR: FAMILY: US26: {family.line_no}: {family.id}: "
+                    f"{role} ({spouse_id}) does not list family {family.id} "
+                    f"as a spouse family"
+                ))
+
+        for child_id in dict.fromkeys(family.chil):
+            child = individuals.get(child_id)
+            if child is None:
+                errors.append((
+                    family.line_no,
+                    f"ERROR: FAMILY: US26: {family.line_no}: {family.id}: "
+                    f"Child ({child_id}) does not exist"
+                ))
+            elif family.id not in child.famc:
+                errors.append((
+                    family.line_no,
+                    f"ERROR: FAMILY: US26: {family.line_no}: {family.id}: "
+                    f"Child ({child_id}) does not list family {family.id} "
+                    f"as a child family"
+                ))
+
+    return errors
+
+
 def get_deceased(individuals):
     """US29: Return every deceased individual (anyone with a DEAT record),
     sorted by ID."""
@@ -1160,6 +1240,39 @@ def get_living_single(individuals, families):
     return sorted(living_single, key=lambda person: person.id)
 
 
+def get_living_married(individuals, families):
+    """US30: List all living married people in a GEDCOM file."""
+    living_married = {}
+
+    for family in families.values():
+        if family.married_date is None or family.divorced_date is not None:
+            continue
+
+        husband = individuals.get(family.husb)
+        wife = individuals.get(family.wife)
+
+        if husband and wife and husband.alive and wife.alive:
+            living_married[husband.id] = husband
+            living_married[wife.id] = wife
+
+    return [living_married[indi_id] for indi_id in sorted(living_married)]
+
+
+def print_living_married(individuals, families):
+    """US30: List all living married people in a GEDCOM file."""
+    rows = []
+
+    for person in get_living_married(individuals, families):
+        rows.append([person.id, person.name, format_id_set(person.fams)])
+
+    print("\nUS30: Living Married Individuals")
+
+    if rows:
+        print_table(["ID", "Name", "Spouse"], rows)
+    else:
+        print("No living married individuals found.")
+
+
 def print_living_single(individuals, families):
     rows = []
 
@@ -1209,6 +1322,7 @@ def run_all_checks(individuals, families):
 
     # Sprint 4
     all_errors += check_us25_unique_first_names_in_families(individuals, families)
+    all_errors += check_us26_corresponding_entries(individuals, families)
 
     all_errors.sort(key=lambda pair: pair[0])
 
@@ -1234,6 +1348,7 @@ def main():
     individuals, families = process_gedcom(filename)
     print_individuals(individuals)
     print_living_single(individuals, families)
+    print_living_married(individuals, families)
     print_families(individuals, families)
     run_all_checks(individuals, families)
 
