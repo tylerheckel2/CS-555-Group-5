@@ -217,6 +217,29 @@ class TestGEDCOMUserStories(unittest.TestCase):
             ))
 
 
+    def test_us26_corresponding_entries(self):
+        errors = gedcom.check_us26_corresponding_entries(self.individuals, self.families)
+        self.assert_story_errors("US26", errors, ["BQ26C1", "BQ26F1"] + ["MI15F"] * 15
+                                 + ["MI19F1"] * 4 + ["MI19F2"] * 3 + ["MI19F3"] * 3
+                                 + ["MI19F4"] * 2)
+
+    def test_us30_list_living_married(self):
+        people = gedcom.get_living_married(self.individuals, self.families)
+        ids = [person.id for person in people]
+
+        self.assertEqual(ids, sorted(ids))
+
+        self.assertIn("BQ30H1", ids)
+        self.assertIn("BQ30W1", ids)
+
+        self.assertNotIn("BQ30H2", ids)
+        self.assertNotIn("BQ30W2", ids)
+        self.assertNotIn("BQ30H3", ids)
+        self.assertNotIn("BQ30W3", ids)
+
+        for person in people:
+            self.assertTrue(person.alive)
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
