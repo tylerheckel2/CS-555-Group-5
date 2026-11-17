@@ -21,10 +21,14 @@ test_us22_unique_ids (test_gedcom.TestGEDCOMUserStories.test_us22_unique_ids) ..
 test_us23_unique_name_and_birth_date (test_gedcom.TestGEDCOMUserStories.test_us23_unique_name_and_birth_date) ... ok
 test_us24_unique_families_by_spouses (test_gedcom.TestGEDCOMUserStories.test_us24_unique_families_by_spouses) ... ok
 test_us25_unique_first_names_in_families (test_gedcom.TestGEDCOMUserStories.test_us25_unique_first_names_in_families) ... ok
+test_us26_corresponding_entries (test_gedcom.TestGEDCOMUserStories.test_us26_corresponding_entries) ... ok
+test_us27_include_individual_ages (test_gedcom.TestGEDCOMUserStories.test_us27_include_individual_ages) ... ok
 test_us29_list_deceased (test_gedcom.TestGEDCOMUserStories.test_us29_list_deceased) ... ok
 test_us29_printed_list_has_header_and_deceased_people (test_gedcom.TestGEDCOMUserStories.test_us29_printed_list_has_header_and_deceased_people) ... ok
+test_us30_list_living_married (test_gedcom.TestGEDCOMUserStories.test_us30_list_living_married) ... ok
+test_us31_list_living_single (test_gedcom.TestGEDCOMUserStories.test_us31_list_living_single) ... ok
 
 ----------------------------------------------------------------------
-Ran 25 tests in 0.006s
+Ran 29 tests in 0.007s
 
 OK
