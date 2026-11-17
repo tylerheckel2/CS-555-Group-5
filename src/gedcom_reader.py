@@ -264,7 +264,7 @@ def print_individuals(individuals):
     headers = ["ID", "Name", "Gender", "Birthday", "Age", "Alive", "Death", "Child", "Spouse"]
     rows = []
 
-    today = datetime.date.today()
+    ages = get_individual_ages(individuals)
 
     for indi_id in sorted(individuals.keys()):
         person = individuals[indi_id]
@@ -272,10 +272,7 @@ def print_individuals(individuals):
         birthday_str = person.birth_date.isoformat() if person.birth_date else "NA"
         death_str = person.death_date.isoformat() if person.death_date else "NA"
 
-        if person.alive:
-            age = calculate_age(person.birth_date, today)
-        else:
-            age = calculate_age(person.birth_date, person.death_date)
+        age = ages[person.id]
         age_str = age if age is not None else "NA"
 
         rows.append([
@@ -1120,7 +1117,62 @@ def print_deceased(individuals):
         print("No deceased individuals found.")
 
 
-  
+def get_individual_ages(individuals, today=None):
+    if today is None:
+        today = datetime.date.today()
+
+    ages = {}
+
+    for person in individuals.values():
+        if person.alive:
+            age = calculate_age(person.birth_date, today)
+        else:
+            age = calculate_age(person.birth_date, person.death_date)
+
+        ages[person.id] = age
+
+    return ages
+
+
+# US31 - List Living Single (MI)
+def get_living_single(individuals, families):
+    today = datetime.date.today()
+    married_ids = set()
+
+    for family in families.values():
+        if family.married_date is not None:
+            if family.husb:
+                married_ids.add(family.husb)
+            if family.wife:
+                married_ids.add(family.wife)
+
+    living_single = []
+
+    for person in individuals.values():
+        if not person.alive or person.id in married_ids:
+            continue
+
+        age = calculate_age(person.birth_date, today)
+
+        if age is not None and age > 30:
+            living_single.append(person)
+
+    return sorted(living_single, key=lambda person: person.id)
+
+
+def print_living_single(individuals, families):
+    rows = []
+
+    for person in get_living_single(individuals, families):
+        age = calculate_age(person.birth_date, datetime.date.today())
+        rows.append([person.id, person.name, age])
+
+    print("\nUS31: Living Single Individuals Over 30")
+
+    if rows:
+        print_table(["ID", "Name", "Age"], rows)
+    else:
+        print("No living single individuals over 30 found.")  
 def run_all_checks(individuals, families):
     """Run every user story check implemented so far (Sprint 1,
     Sprint 2, Sprint 3, and Sprint 4) and print the results together, sorted by line number
@@ -1181,6 +1233,7 @@ def main():
 
     individuals, families = process_gedcom(filename)
     print_individuals(individuals)
+    print_living_single(individuals, families)
     print_families(individuals, families)
     run_all_checks(individuals, families)
 
