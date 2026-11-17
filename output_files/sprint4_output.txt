@@ -2090,178 +2090,546 @@
 <-- 1|CHIL|Y|TH25C2
 --> 1 CHIL TH25C3
 <-- 1|CHIL|Y|TH25C3
+--> 0 MI31_SINGLE INDI
+<-- 0|INDI|Y|MI31_SINGLE
+--> 1 NAME Single /Test/
+<-- 1|NAME|Y|Single /Test/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1980
+<-- 2|DATE|Y|1 JAN 1980
+--> 0 MI31_MARRIED INDI
+<-- 0|INDI|Y|MI31_MARRIED
+--> 1 NAME Married /Test/
+<-- 1|NAME|Y|Married /Test/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1980
+<-- 2|DATE|Y|1 JAN 1980
+--> 1 FAMS MI31_FAMILY
+<-- 1|FAMS|Y|MI31_FAMILY
+--> 0 MI31_SPOUSE INDI
+<-- 0|INDI|Y|MI31_SPOUSE
+--> 1 NAME Spouse /Test/
+<-- 1|NAME|Y|Spouse /Test/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1978
+<-- 2|DATE|Y|1 JAN 1978
+--> 1 FAMS MI31_FAMILY
+<-- 1|FAMS|Y|MI31_FAMILY
+--> 0 MI31_FAMILY FAM
+<-- 0|FAM|Y|MI31_FAMILY
+--> 1 HUSB MI31_SPOUSE
+<-- 1|HUSB|Y|MI31_SPOUSE
+--> 1 WIFE MI31_MARRIED
+<-- 1|WIFE|Y|MI31_MARRIED
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JAN 2005
+<-- 2|DATE|Y|1 JAN 2005
+--> 0 MI31_DECEASED INDI
+<-- 0|INDI|Y|MI31_DECEASED
+--> 1 NAME Deceased /Test/
+<-- 1|NAME|Y|Deceased /Test/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1970
+<-- 2|DATE|Y|1 JAN 1970
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 1 JAN 2020
+<-- 2|DATE|Y|1 JAN 2020
+--> 0 MI31_YOUNG INDI
+<-- 0|INDI|Y|MI31_YOUNG
+--> 1 NAME Young /Test/
+<-- 1|NAME|Y|Young /Test/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 2005
+<-- 2|DATE|Y|1 JAN 2005
+--> 0 BQ26H1 INDI
+<-- 0|INDI|Y|BQ26H1
+--> 1 NAME Father /Records/
+<-- 1|NAME|Y|Father /Records/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1960
+<-- 2|DATE|Y|1 JAN 1960
+--> 1 FAMS BQ26F1
+<-- 1|FAMS|Y|BQ26F1
+--> 0 BQ26W1 INDI
+<-- 0|INDI|Y|BQ26W1
+--> 1 NAME Mother /Records/
+<-- 1|NAME|Y|Mother /Records/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1962
+<-- 2|DATE|Y|1 JAN 1962
+--> 1 FAMS BQ26F1
+<-- 1|FAMS|Y|BQ26F1
+--> 0 BQ26C1 INDI
+<-- 0|INDI|Y|BQ26C1
+--> 1 NAME Missing /Records/
+<-- 1|NAME|Y|Missing /Records/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1990
+<-- 2|DATE|Y|1 JAN 1990
+--> 1 FAMC BQ26F1
+<-- 1|FAMC|Y|BQ26F1
+--> 0 BQ26C2 INDI
+<-- 0|INDI|Y|BQ26C2
+--> 1 NAME Unlinked /Records/
+<-- 1|NAME|Y|Unlinked /Records/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1993
+<-- 2|DATE|Y|1 JAN 1993
+--> 0 BQ26F1 FAM
+<-- 0|FAM|Y|BQ26F1
+--> 1 HUSB BQ26H1
+<-- 1|HUSB|Y|BQ26H1
+--> 1 WIFE BQ26W1
+<-- 1|WIFE|Y|BQ26W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1985
+<-- 2|DATE|Y|1 JUN 1985
+--> 1 CHIL BQ26C2
+<-- 1|CHIL|Y|BQ26C2
+--> 0 BQ30H1 INDI
+<-- 0|INDI|Y|BQ30H1
+--> 1 NAME Husband /Married/
+<-- 1|NAME|Y|Husband /Married/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1980
+<-- 2|DATE|Y|1 JAN 1980
+--> 1 FAMS BQ30F1
+<-- 1|FAMS|Y|BQ30F1
+--> 0 BQ30W1 INDI
+<-- 0|INDI|Y|BQ30W1
+--> 1 NAME Wife /Married/
+<-- 1|NAME|Y|Wife /Married/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1982
+<-- 2|DATE|Y|1 JAN 1982
+--> 1 FAMS BQ30F1
+<-- 1|FAMS|Y|BQ30F1
+--> 0 BQ30F1 FAM
+<-- 0|FAM|Y|BQ30F1
+--> 1 HUSB BQ30H1
+<-- 1|HUSB|Y|BQ30H1
+--> 1 WIFE BQ30W1
+<-- 1|WIFE|Y|BQ30W1
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 2010
+<-- 2|DATE|Y|1 JUN 2010
+--> 0 BQ30H2 INDI
+<-- 0|INDI|Y|BQ30H2
+--> 1 NAME Husband /Widowed/
+<-- 1|NAME|Y|Husband /Widowed/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1950
+<-- 2|DATE|Y|1 JAN 1950
+--> 1 FAMS BQ30F2
+<-- 1|FAMS|Y|BQ30F2
+--> 0 BQ30W2 INDI
+<-- 0|INDI|Y|BQ30W2
+--> 1 NAME Wife /Widowed/
+<-- 1|NAME|Y|Wife /Widowed/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1952
+<-- 2|DATE|Y|1 JAN 1952
+--> 1 DEAT
+<-- 1|DEAT|Y|
+--> 2 DATE 1 JAN 2020
+<-- 2|DATE|Y|1 JAN 2020
+--> 1 FAMS BQ30F2
+<-- 1|FAMS|Y|BQ30F2
+--> 0 BQ30F2 FAM
+<-- 0|FAM|Y|BQ30F2
+--> 1 HUSB BQ30H2
+<-- 1|HUSB|Y|BQ30H2
+--> 1 WIFE BQ30W2
+<-- 1|WIFE|Y|BQ30W2
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1975
+<-- 2|DATE|Y|1 JUN 1975
+--> 0 BQ30H3 INDI
+<-- 0|INDI|Y|BQ30H3
+--> 1 NAME Husband /Divorced/
+<-- 1|NAME|Y|Husband /Divorced/
+--> 1 SEX M
+<-- 1|SEX|Y|M
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1970
+<-- 2|DATE|Y|1 JAN 1970
+--> 1 FAMS BQ30F3
+<-- 1|FAMS|Y|BQ30F3
+--> 0 BQ30W3 INDI
+<-- 0|INDI|Y|BQ30W3
+--> 1 NAME Wife /Divorced/
+<-- 1|NAME|Y|Wife /Divorced/
+--> 1 SEX F
+<-- 1|SEX|Y|F
+--> 1 BIRT
+<-- 1|BIRT|Y|
+--> 2 DATE 1 JAN 1972
+<-- 2|DATE|Y|1 JAN 1972
+--> 1 FAMS BQ30F3
+<-- 1|FAMS|Y|BQ30F3
+--> 0 BQ30F3 FAM
+<-- 0|FAM|Y|BQ30F3
+--> 1 HUSB BQ30H3
+<-- 1|HUSB|Y|BQ30H3
+--> 1 WIFE BQ30W3
+<-- 1|WIFE|Y|BQ30W3
+--> 1 MARR
+<-- 1|MARR|Y|
+--> 2 DATE 1 JUN 1995
+<-- 2|DATE|Y|1 JUN 1995
+--> 1 DIV
+<-- 1|DIV|Y|
+--> 2 DATE 1 JUN 2005
+<-- 2|DATE|Y|1 JUN 2005
 --> 0 TRLR
 <-- 0|TRLR|Y|
 
 Individuals
-+-----------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
-| ID        | Name                           | Gender | Birthday   | Age | Alive | Death      | Child       | Spouse                 |
-+-----------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
-| @I10@     | David /Smith/                  | M      | 2000-12-03 | 25  | True  | NA         | {'@F4@'}    | NA                     |
-| @I1@      | John /Anderson/                | M      | 1945-03-03 | 33  | False | 1978-06-15 | NA          | {'@F1@'}               |
-| @I2@      | Mary /Whitfield/               | F      | 1948-07-22 | 78  | True  | NA         | NA          | {'@F1@', '@F2@'}       |
-| @I3@      | Robert /Anderson/              | M      | 1970-09-10 | 56  | True  | NA         | {'@F1@'}    | {'@F3@'}               |
-| @I4@      | Susan /Anderson/               | F      | 1972-01-05 | 54  | True  | NA         | {'@F1@'}    | {'@F4@'}               |
-| @I5@      | Thomas /Baker/                 | M      | 1946-11-12 | 80  | True  | NA         | NA          | {'@F2@'}               |
-| @I6@      | Linda /Baker/                  | F      | 1981-04-08 | 45  | True  | NA         | {'@F2@'}    | NA                     |
-| @I7@      | Faith /Ortiz/                  | F      | 1972-02-14 | 54  | True  | NA         | NA          | {'@F3@'}               |
-| @I8@      | Emily /Anderson/               | F      | 1998-05-20 | 28  | True  | NA         | {'@F3@'}    | NA                     |
-| @I9@      | Michael /Smith/                | M      | 1970-08-30 | 56  | True  | NA         | NA          | {'@F4@'}               |
-| BQ10H1    | Teen /Husband/                 | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'BQ10F1'}             |
-| BQ10H2    | Normal /Husband/               | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'BQ10F2'}             |
-| BQ10W1    | Adult /Wife/                   | F      | 1975-01-01 | 51  | True  | NA         | NA          | {'BQ10F1'}             |
-| BQ10W2    | Fourteen /Wife/                | F      | 1980-06-01 | 46  | True  | NA         | NA          | {'BQ10F2'}             |
-| BQ14C1    | SextupletOne /Sextuplets/      | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C10   | Quintuplet /Four/              | F      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
-| BQ14C11   | QuintupletFive /Quintuplets/   | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
-| BQ14C2    | Sextuplet /Two/                | F      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C3    | SextupletThree /Sextuplets/    | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C4    | Sextuplet /Four/               | F      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C5    | SextupletFive /Sextuplets/     | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C6    | Sextuplet /Six/                | F      | 1990-01-02 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
-| BQ14C7    | QuintupletOne /Quintuplets/    | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
-| BQ14C8    | Quintuplet /Two/               | F      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
-| BQ14C9    | QuintupletThree /Quintuplets/  | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
-| BQ14H1    | Father /Sextuplets/            | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ14F1'}             |
-| BQ14H2    | Father /Quintuplets/           | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ14F2'}             |
-| BQ14W1    | Mother /Sextuplets/            | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F1'}             |
-| BQ14W2    | Mother /Quintuplets/           | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F2'}             |
-| BQ18C1    | Brother /Siblings/             | M      | 1975-01-01 | 51  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
-| BQ18C2    | Sister /Siblings/              | F      | 1978-01-01 | 48  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
-| BQ18H1    | Father /Siblings/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'BQ18F1'}             |
-| BQ18W1    | Mother /Siblings/              | F      | 1952-01-01 | 74  | True  | NA         | NA          | {'BQ18F1'}             |
-| BQ22H1    | Husband /Unique/               | M      | 1975-01-01 | 51  | True  | NA         | NA          | {'BQ22F1'}             |
-| BQ22W1    | Wife /Unique/                  | F      | 1977-01-01 | 49  | True  | NA         | NA          | {'BQ22F1'}             |
-| JB12C1    | Young /Old/                    | F      | 2000-06-01 | 26  | True  | NA         | {'JB12F1'}  | NA                     |
-| JB12H1    | Old /Father/                   | M      | 1915-01-01 | 111 | True  | NA         | NA          | {'JB12F1'}             |
-| JB12W1    | Old /Mother/                   | F      | 1935-01-01 | 91  | True  | NA         | NA          | {'JB12F1'}             |
-| JB16C1    | Timmy /Different/              | M      | 2000-06-01 | 26  | True  | NA         | {'JB16F1'}  | NA                     |
-| JB16H1    | John /Mismatch/                | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'JB16F1'}             |
-| JB16W1    | Jane /Mismatch/                | F      | 1972-01-01 | 54  | True  | NA         | NA          | {'JB16F1'}             |
-| JB20Dad   | Innocent /Father/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'JB20F2'}             |
-| JB20GP_F  | Grand /Mother/                 | F      | 1920-01-01 | 106 | True  | NA         | NA          | {'JB20F1'}             |
-| JB20GP_M  | Grand /Father/                 | M      | 1920-01-01 | 106 | True  | NA         | NA          | {'JB20F1'}             |
-| JB20Mom   | Innocent /Mother/              | F      | 1950-01-01 | 76  | True  | NA         | {'JB20F1'}  | {'JB20F2'}             |
-| JB20Niece | Unlucky /Niece/                | F      | 1980-01-01 | 46  | True  | NA         | {'JB20F2'}  | {'JB20F3'}             |
-| JB20Uncle | Bad /Uncle/                    | M      | 1950-01-01 | 76  | True  | NA         | {'JB20F1'}  | {'JB20F3'}             |
-| JB24H1    | Duplicate /Husband/            | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F1'}             |
-| JB24H2    | Duplicate /Husband/            | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F2'}             |
-| JB24W1    | Duplicate /Wife/               | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F1'}             |
-| JB24W2    | Duplicate /Wife/               | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F2'}             |
-| MI11H     | Bigamy /Test/                  | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'MI11F1', 'MI11F2'}   |
-| MI11W1    | First /Wife/                   | F      | 1972-01-01 | 54  | True  | NA         | NA          | {'MI11F1'}             |
-| MI11W2    | Second /Wife/                  | F      | 1975-01-01 | 51  | True  | NA         | NA          | {'MI11F2'}             |
-| MI15H     | Large /FamilyFather/           | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'MI15F'}              |
-| MI15W     | Large /FamilyMother/           | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'MI15F'}              |
-| MI19C1    | FirstCousin /CousinTest/       | M      | 1990-01-01 | 36  | True  | NA         | NA          | NA                     |
-| MI19C2    | SecondCousin /CousinTest/      | F      | 1992-01-01 | 34  | True  | NA         | NA          | NA                     |
-| MI19GP1   | Grandfather /CousinTest/       | M      | 1940-01-01 | 86  | True  | NA         | NA          | NA                     |
-| MI19GP2   | Grandmother /CousinTest/       | F      | 1942-01-01 | 84  | True  | NA         | NA          | NA                     |
-| MI19P1    | FirstParent /CousinTest/       | M      | 1965-01-01 | 61  | True  | NA         | NA          | NA                     |
-| MI19P2    | SecondParent /CousinTest/      | F      | 1968-01-01 | 58  | True  | NA         | NA          | NA                     |
-| MI19S1    | FirstSpouse /CousinTest/       | F      | 1967-01-01 | 59  | True  | NA         | NA          | NA                     |
-| MI19S2    | SecondSpouse /CousinTest/      | M      | 1966-01-01 | 60  | True  | NA         | NA          | NA                     |
-| MI23I1    | Alex /DuplicateTest/           | M      | 2000-05-10 | 26  | True  | NA         | NA          | NA                     |
-| MI23I2    | Alex /DuplicateTest/           | M      | 2000-05-10 | 26  | True  | NA         | NA          | NA                     |
-| T1        | Future /Person/                | M      | 2099-01-01 | -73 | True  | NA         | NA          | NA                     |
-| T2        | Backwards /Timeline/           | F      | 2000-01-01 | -10 | False | 1990-01-01 | NA          | NA                     |
-| T3        | Ancient /Living/               | M      | 1850-01-01 | 176 | True  | NA         | NA          | NA                     |
-| T4        | Ancient /Deceased/             | F      | 1700-01-01 | 200 | False | 1900-01-01 | NA          | NA                     |
-| TC13A     | First /Thirteen/               | M      | 1995-01-01 | 31  | True  | NA         | {'TF13'}    | NA                     |
-| TC13B     | Second /Sibling/               | F      | 1995-03-01 | 31  | True  | NA         | {'TF13'}    | NA                     |
-| TC13C     | Twin /Twins/                   | M      | 2000-01-01 | 26  | True  | NA         | {'TF13B'}   | NA                     |
-| TC13D     | Twin /Two/                     | F      | 2000-01-01 | 26  | True  | NA         | {'TF13B'}   | NA                     |
-| TC9       | TooLate /Father/               | M      | 1990-06-01 | 36  | True  | NA         | {'TF9'}     | NA                     |
-| TC9B      | WayTooLate /Child/             | F      | 1990-12-01 | 35  | True  | NA         | {'TF9B'}    | NA                     |
-| TH1       | TooYoung /Husband/             | M      | 2000-01-01 | 26  | True  | NA         | NA          | {'TF1'}                |
-| TH13      | Father /Thirteen/              | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TF13'}               |
-| TH13B     | Father /Twins/                 | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TF13B'}              |
-| TH17AD    | Daughter /Seventeenone/        | F      | 1955-01-01 | 71  | True  | NA         | {'TH17AF1'} | {'TH17AF2'}            |
-| TH17AH    | Dad /Seventeenone/             | M      | 1930-01-01 | 96  | True  | NA         | NA          | {'TH17AF1', 'TH17AF2'} |
-| TH17AW    | Mom /Seventeenone/             | F      | 1932-01-01 | 48  | False | 1980-01-01 | NA          | {'TH17AF1'}            |
-| TH17BH    | Dad /Seventeentwo/             | M      | 1928-01-01 | 52  | False | 1980-01-01 | NA          | {'TH17BF1'}            |
-| TH17BS    | Son /Seventeentwo/             | M      | 1955-01-01 | 71  | True  | NA         | {'TH17BF1'} | {'TH17BF2'}            |
-| TH17BW    | Mom /Seventeentwo/             | F      | 1930-01-01 | 96  | True  | NA         | NA          | {'TH17BF1', 'TH17BF2'} |
-| TH17CG    | Grandpa /Seventeenthree/       | M      | 1920-01-01 | 106 | True  | NA         | NA          | {'TH17CF1', 'TH17CF3'} |
-| TH17CGD   | Granddaughter /Seventeenthree/ | F      | 1970-01-01 | 56  | True  | NA         | {'TH17CF2'} | {'TH17CF3'}            |
-| TH17CGW   | Grandma /Seventeenthree/       | F      | 1922-01-01 | 48  | False | 1970-01-01 | NA          | {'TH17CF1'}            |
-| TH17CP    | Parent /Seventeenthree/        | M      | 1945-01-01 | 81  | True  | NA         | {'TH17CF1'} | {'TH17CF2'}            |
-| TH17CPW   | Parentspouse /Other/           | F      | 1947-01-01 | 79  | True  | NA         | NA          | {'TH17CF2'}            |
-| TH2       | Already /Dead/                 | M      | 1950-01-01 | 40  | False | 1990-01-01 | NA          | {'TF2'}                |
-| TH21H1    | Wrong /Husbandone/             | F      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F1'}             |
-| TH21H2    | Right /Husbandtwo/             | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F2'}             |
-| TH21H3    | Swapped /Husbandthree/         | F      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F3'}             |
-| TH21H4    | Nosex /Husbandfour/            |        | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F4'}             |
-| TH21W1    | Right /Wifeone/                | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F1'}             |
-| TH21W2    | Wrong /Wifetwo/                | M      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F2'}             |
-| TH21W3    | Swapped /Wifethree/            | M      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F3'}             |
-| TH21W4    | Right /Wifefour/               | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F4'}             |
-| TH25C1    | Alex /Twentyfive/              | M      | 1990-01-01 | 36  | True  | NA         | {'TH25F1'}  | NA                     |
-| TH25C2    | Alex /Twentyfive/              | F      | 1990-01-01 | 36  | True  | NA         | {'TH25F1'}  | NA                     |
-| TH25C3    | Alex /Twentyfive/              | M      | 1993-01-01 | 33  | True  | NA         | {'TH25F1'}  | NA                     |
-| TH25H     | Dad /Twentyfive/               | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH25F1'}             |
-| TH25W     | Mom /Twentyfive/               | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH25F1'}             |
-| TH3       | Living /Husband/               | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'TF3'}                |
-| TH9       | Living /Father/                | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'TF9'}                |
-| TH9B      | Deceased /Father/              | M      | 1950-01-01 | 40  | False | 1990-01-01 | NA          | {'TF9B'}               |
-| TW1       | Normal /Wife/                  | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'TF1'}                |
-| TW13      | Mother /Thirteen/              | F      | 1965-01-01 | 61  | True  | NA         | NA          | {'TF13'}               |
-| TW13B     | Mother /Twins/                 | F      | 1965-01-01 | 61  | True  | NA         | NA          | {'TF13B'}              |
-| TW2       | Widow /Bride/                  | F      | 1955-01-01 | 71  | True  | NA         | NA          | {'TF2'}                |
-| TW3       | Deceased /Wife/                | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA          | {'TF3'}                |
-| TW9       | Deceased /Mother/              | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA          | {'TF9'}                |
-| TW9B      | Living /Mother/                | F      | 1955-01-01 | 71  | True  | NA         | NA          | {'TF9B'}               |
-+-----------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
++---------------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
+| ID            | Name                           | Gender | Birthday   | Age | Alive | Death      | Child       | Spouse                 |
++---------------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
+| @I10@         | David /Smith/                  | M      | 2000-12-03 | 25  | True  | NA         | {'@F4@'}    | NA                     |
+| @I1@          | John /Anderson/                | M      | 1945-03-03 | 33  | False | 1978-06-15 | NA          | {'@F1@'}               |
+| @I2@          | Mary /Whitfield/               | F      | 1948-07-22 | 78  | True  | NA         | NA          | {'@F1@', '@F2@'}       |
+| @I3@          | Robert /Anderson/              | M      | 1970-09-10 | 56  | True  | NA         | {'@F1@'}    | {'@F3@'}               |
+| @I4@          | Susan /Anderson/               | F      | 1972-01-05 | 54  | True  | NA         | {'@F1@'}    | {'@F4@'}               |
+| @I5@          | Thomas /Baker/                 | M      | 1946-11-12 | 80  | True  | NA         | NA          | {'@F2@'}               |
+| @I6@          | Linda /Baker/                  | F      | 1981-04-08 | 45  | True  | NA         | {'@F2@'}    | NA                     |
+| @I7@          | Faith /Ortiz/                  | F      | 1972-02-14 | 54  | True  | NA         | NA          | {'@F3@'}               |
+| @I8@          | Emily /Anderson/               | F      | 1998-05-20 | 28  | True  | NA         | {'@F3@'}    | NA                     |
+| @I9@          | Michael /Smith/                | M      | 1970-08-30 | 56  | True  | NA         | NA          | {'@F4@'}               |
+| BQ10H1        | Teen /Husband/                 | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'BQ10F1'}             |
+| BQ10H2        | Normal /Husband/               | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'BQ10F2'}             |
+| BQ10W1        | Adult /Wife/                   | F      | 1975-01-01 | 51  | True  | NA         | NA          | {'BQ10F1'}             |
+| BQ10W2        | Fourteen /Wife/                | F      | 1980-06-01 | 46  | True  | NA         | NA          | {'BQ10F2'}             |
+| BQ14C1        | SextupletOne /Sextuplets/      | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C10       | Quintuplet /Four/              | F      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
+| BQ14C11       | QuintupletFive /Quintuplets/   | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
+| BQ14C2        | Sextuplet /Two/                | F      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C3        | SextupletThree /Sextuplets/    | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C4        | Sextuplet /Four/               | F      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C5        | SextupletFive /Sextuplets/     | M      | 1990-01-01 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C6        | Sextuplet /Six/                | F      | 1990-01-02 | 36  | True  | NA         | {'BQ14F1'}  | NA                     |
+| BQ14C7        | QuintupletOne /Quintuplets/    | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
+| BQ14C8        | Quintuplet /Two/               | F      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
+| BQ14C9        | QuintupletThree /Quintuplets/  | M      | 1992-03-01 | 34  | True  | NA         | {'BQ14F2'}  | NA                     |
+| BQ14H1        | Father /Sextuplets/            | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ14F1'}             |
+| BQ14H2        | Father /Quintuplets/           | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ14F2'}             |
+| BQ14W1        | Mother /Sextuplets/            | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F1'}             |
+| BQ14W2        | Mother /Quintuplets/           | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ14F2'}             |
+| BQ18C1        | Brother /Siblings/             | M      | 1975-01-01 | 51  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
+| BQ18C2        | Sister /Siblings/              | F      | 1978-01-01 | 48  | True  | NA         | {'BQ18F1'}  | {'BQ18F2'}             |
+| BQ18H1        | Father /Siblings/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'BQ18F1'}             |
+| BQ18W1        | Mother /Siblings/              | F      | 1952-01-01 | 74  | True  | NA         | NA          | {'BQ18F1'}             |
+| BQ22H1        | Husband /Unique/               | M      | 1975-01-01 | 51  | True  | NA         | NA          | {'BQ22F1'}             |
+| BQ22W1        | Wife /Unique/                  | F      | 1977-01-01 | 49  | True  | NA         | NA          | {'BQ22F1'}             |
+| BQ26C1        | Missing /Records/              | M      | 1990-01-01 | 36  | True  | NA         | {'BQ26F1'}  | NA                     |
+| BQ26C2        | Unlinked /Records/             | F      | 1993-01-01 | 33  | True  | NA         | NA          | NA                     |
+| BQ26H1        | Father /Records/               | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'BQ26F1'}             |
+| BQ26W1        | Mother /Records/               | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'BQ26F1'}             |
+| BQ30H1        | Husband /Married/              | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'BQ30F1'}             |
+| BQ30H2        | Husband /Widowed/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'BQ30F2'}             |
+| BQ30H3        | Husband /Divorced/             | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'BQ30F3'}             |
+| BQ30W1        | Wife /Married/                 | F      | 1982-01-01 | 44  | True  | NA         | NA          | {'BQ30F1'}             |
+| BQ30W2        | Wife /Widowed/                 | F      | 1952-01-01 | 68  | False | 2020-01-01 | NA          | {'BQ30F2'}             |
+| BQ30W3        | Wife /Divorced/                | F      | 1972-01-01 | 54  | True  | NA         | NA          | {'BQ30F3'}             |
+| JB12C1        | Young /Old/                    | F      | 2000-06-01 | 26  | True  | NA         | {'JB12F1'}  | NA                     |
+| JB12H1        | Old /Father/                   | M      | 1915-01-01 | 111 | True  | NA         | NA          | {'JB12F1'}             |
+| JB12W1        | Old /Mother/                   | F      | 1935-01-01 | 91  | True  | NA         | NA          | {'JB12F1'}             |
+| JB16C1        | Timmy /Different/              | M      | 2000-06-01 | 26  | True  | NA         | {'JB16F1'}  | NA                     |
+| JB16H1        | John /Mismatch/                | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'JB16F1'}             |
+| JB16W1        | Jane /Mismatch/                | F      | 1972-01-01 | 54  | True  | NA         | NA          | {'JB16F1'}             |
+| JB20Dad       | Innocent /Father/              | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'JB20F2'}             |
+| JB20GP_F      | Grand /Mother/                 | F      | 1920-01-01 | 106 | True  | NA         | NA          | {'JB20F1'}             |
+| JB20GP_M      | Grand /Father/                 | M      | 1920-01-01 | 106 | True  | NA         | NA          | {'JB20F1'}             |
+| JB20Mom       | Innocent /Mother/              | F      | 1950-01-01 | 76  | True  | NA         | {'JB20F1'}  | {'JB20F2'}             |
+| JB20Niece     | Unlucky /Niece/                | F      | 1980-01-01 | 46  | True  | NA         | {'JB20F2'}  | {'JB20F3'}             |
+| JB20Uncle     | Bad /Uncle/                    | M      | 1950-01-01 | 76  | True  | NA         | {'JB20F1'}  | {'JB20F3'}             |
+| JB24H1        | Duplicate /Husband/            | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F1'}             |
+| JB24H2        | Duplicate /Husband/            | M      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F2'}             |
+| JB24W1        | Duplicate /Wife/               | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F1'}             |
+| JB24W2        | Duplicate /Wife/               | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'JB24F2'}             |
+| MI11H         | Bigamy /Test/                  | M      | 1970-01-01 | 56  | True  | NA         | NA          | {'MI11F1', 'MI11F2'}   |
+| MI11W1        | First /Wife/                   | F      | 1972-01-01 | 54  | True  | NA         | NA          | {'MI11F1'}             |
+| MI11W2        | Second /Wife/                  | F      | 1975-01-01 | 51  | True  | NA         | NA          | {'MI11F2'}             |
+| MI15H         | Large /FamilyFather/           | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'MI15F'}              |
+| MI15W         | Large /FamilyMother/           | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'MI15F'}              |
+| MI19C1        | FirstCousin /CousinTest/       | M      | 1990-01-01 | 36  | True  | NA         | NA          | NA                     |
+| MI19C2        | SecondCousin /CousinTest/      | F      | 1992-01-01 | 34  | True  | NA         | NA          | NA                     |
+| MI19GP1       | Grandfather /CousinTest/       | M      | 1940-01-01 | 86  | True  | NA         | NA          | NA                     |
+| MI19GP2       | Grandmother /CousinTest/       | F      | 1942-01-01 | 84  | True  | NA         | NA          | NA                     |
+| MI19P1        | FirstParent /CousinTest/       | M      | 1965-01-01 | 61  | True  | NA         | NA          | NA                     |
+| MI19P2        | SecondParent /CousinTest/      | F      | 1968-01-01 | 58  | True  | NA         | NA          | NA                     |
+| MI19S1        | FirstSpouse /CousinTest/       | F      | 1967-01-01 | 59  | True  | NA         | NA          | NA                     |
+| MI19S2        | SecondSpouse /CousinTest/      | M      | 1966-01-01 | 60  | True  | NA         | NA          | NA                     |
+| MI23I1        | Alex /DuplicateTest/           | M      | 2000-05-10 | 26  | True  | NA         | NA          | NA                     |
+| MI23I2        | Alex /DuplicateTest/           | M      | 2000-05-10 | 26  | True  | NA         | NA          | NA                     |
+| MI31_DECEASED | Deceased /Test/                | M      | 1970-01-01 | 50  | False | 2020-01-01 | NA          | NA                     |
+| MI31_MARRIED  | Married /Test/                 | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'MI31_FAMILY'}        |
+| MI31_SINGLE   | Single /Test/                  | M      | 1980-01-01 | 46  | True  | NA         | NA          | NA                     |
+| MI31_SPOUSE   | Spouse /Test/                  | M      | 1978-01-01 | 48  | True  | NA         | NA          | {'MI31_FAMILY'}        |
+| MI31_YOUNG    | Young /Test/                   | F      | 2005-01-01 | 21  | True  | NA         | NA          | NA                     |
+| T1            | Future /Person/                | M      | 2099-01-01 | -73 | True  | NA         | NA          | NA                     |
+| T2            | Backwards /Timeline/           | F      | 2000-01-01 | -10 | False | 1990-01-01 | NA          | NA                     |
+| T3            | Ancient /Living/               | M      | 1850-01-01 | 176 | True  | NA         | NA          | NA                     |
+| T4            | Ancient /Deceased/             | F      | 1700-01-01 | 200 | False | 1900-01-01 | NA          | NA                     |
+| TC13A         | First /Thirteen/               | M      | 1995-01-01 | 31  | True  | NA         | {'TF13'}    | NA                     |
+| TC13B         | Second /Sibling/               | F      | 1995-03-01 | 31  | True  | NA         | {'TF13'}    | NA                     |
+| TC13C         | Twin /Twins/                   | M      | 2000-01-01 | 26  | True  | NA         | {'TF13B'}   | NA                     |
+| TC13D         | Twin /Two/                     | F      | 2000-01-01 | 26  | True  | NA         | {'TF13B'}   | NA                     |
+| TC9           | TooLate /Father/               | M      | 1990-06-01 | 36  | True  | NA         | {'TF9'}     | NA                     |
+| TC9B          | WayTooLate /Child/             | F      | 1990-12-01 | 35  | True  | NA         | {'TF9B'}    | NA                     |
+| TH1           | TooYoung /Husband/             | M      | 2000-01-01 | 26  | True  | NA         | NA          | {'TF1'}                |
+| TH13          | Father /Thirteen/              | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TF13'}               |
+| TH13B         | Father /Twins/                 | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TF13B'}              |
+| TH17AD        | Daughter /Seventeenone/        | F      | 1955-01-01 | 71  | True  | NA         | {'TH17AF1'} | {'TH17AF2'}            |
+| TH17AH        | Dad /Seventeenone/             | M      | 1930-01-01 | 96  | True  | NA         | NA          | {'TH17AF1', 'TH17AF2'} |
+| TH17AW        | Mom /Seventeenone/             | F      | 1932-01-01 | 48  | False | 1980-01-01 | NA          | {'TH17AF1'}            |
+| TH17BH        | Dad /Seventeentwo/             | M      | 1928-01-01 | 52  | False | 1980-01-01 | NA          | {'TH17BF1'}            |
+| TH17BS        | Son /Seventeentwo/             | M      | 1955-01-01 | 71  | True  | NA         | {'TH17BF1'} | {'TH17BF2'}            |
+| TH17BW        | Mom /Seventeentwo/             | F      | 1930-01-01 | 96  | True  | NA         | NA          | {'TH17BF1', 'TH17BF2'} |
+| TH17CG        | Grandpa /Seventeenthree/       | M      | 1920-01-01 | 106 | True  | NA         | NA          | {'TH17CF1', 'TH17CF3'} |
+| TH17CGD       | Granddaughter /Seventeenthree/ | F      | 1970-01-01 | 56  | True  | NA         | {'TH17CF2'} | {'TH17CF3'}            |
+| TH17CGW       | Grandma /Seventeenthree/       | F      | 1922-01-01 | 48  | False | 1970-01-01 | NA          | {'TH17CF1'}            |
+| TH17CP        | Parent /Seventeenthree/        | M      | 1945-01-01 | 81  | True  | NA         | {'TH17CF1'} | {'TH17CF2'}            |
+| TH17CPW       | Parentspouse /Other/           | F      | 1947-01-01 | 79  | True  | NA         | NA          | {'TH17CF2'}            |
+| TH2           | Already /Dead/                 | M      | 1950-01-01 | 40  | False | 1990-01-01 | NA          | {'TF2'}                |
+| TH21H1        | Wrong /Husbandone/             | F      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F1'}             |
+| TH21H2        | Right /Husbandtwo/             | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F2'}             |
+| TH21H3        | Swapped /Husbandthree/         | F      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F3'}             |
+| TH21H4        | Nosex /Husbandfour/            |        | 1960-01-01 | 66  | True  | NA         | NA          | {'TH21F4'}             |
+| TH21W1        | Right /Wifeone/                | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F1'}             |
+| TH21W2        | Wrong /Wifetwo/                | M      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F2'}             |
+| TH21W3        | Swapped /Wifethree/            | M      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F3'}             |
+| TH21W4        | Right /Wifefour/               | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH21F4'}             |
+| TH25C1        | Alex /Twentyfive/              | M      | 1990-01-01 | 36  | True  | NA         | {'TH25F1'}  | NA                     |
+| TH25C2        | Alex /Twentyfive/              | F      | 1990-01-01 | 36  | True  | NA         | {'TH25F1'}  | NA                     |
+| TH25C3        | Alex /Twentyfive/              | M      | 1993-01-01 | 33  | True  | NA         | {'TH25F1'}  | NA                     |
+| TH25H         | Dad /Twentyfive/               | M      | 1960-01-01 | 66  | True  | NA         | NA          | {'TH25F1'}             |
+| TH25W         | Mom /Twentyfive/               | F      | 1962-01-01 | 64  | True  | NA         | NA          | {'TH25F1'}             |
+| TH3           | Living /Husband/               | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'TF3'}                |
+| TH9           | Living /Father/                | M      | 1950-01-01 | 76  | True  | NA         | NA          | {'TF9'}                |
+| TH9B          | Deceased /Father/              | M      | 1950-01-01 | 40  | False | 1990-01-01 | NA          | {'TF9B'}               |
+| TW1           | Normal /Wife/                  | F      | 1980-01-01 | 46  | True  | NA         | NA          | {'TF1'}                |
+| TW13          | Mother /Thirteen/              | F      | 1965-01-01 | 61  | True  | NA         | NA          | {'TF13'}               |
+| TW13B         | Mother /Twins/                 | F      | 1965-01-01 | 61  | True  | NA         | NA          | {'TF13B'}              |
+| TW2           | Widow /Bride/                  | F      | 1955-01-01 | 71  | True  | NA         | NA          | {'TF2'}                |
+| TW3           | Deceased /Wife/                | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA          | {'TF3'}                |
+| TW9           | Deceased /Mother/              | F      | 1955-01-01 | 35  | False | 1990-01-01 | NA          | {'TF9'}                |
+| TW9B          | Living /Mother/                | F      | 1955-01-01 | 71  | True  | NA         | NA          | {'TF9B'}               |
++---------------+--------------------------------+--------+------------+-----+-------+------------+-------------+------------------------+
+
+US31: Living Single Individuals Over 30
++-------------+-------------------------------+-----+
+| ID          | Name                          | Age |
++-------------+-------------------------------+-----+
+| @I6@        | Linda /Baker/                 | 45  |
+| BQ14C1      | SextupletOne /Sextuplets/     | 36  |
+| BQ14C10     | Quintuplet /Four/             | 34  |
+| BQ14C11     | QuintupletFive /Quintuplets/  | 34  |
+| BQ14C2      | Sextuplet /Two/               | 36  |
+| BQ14C3      | SextupletThree /Sextuplets/   | 36  |
+| BQ14C4      | Sextuplet /Four/              | 36  |
+| BQ14C5      | SextupletFive /Sextuplets/    | 36  |
+| BQ14C6      | Sextuplet /Six/               | 36  |
+| BQ14C7      | QuintupletOne /Quintuplets/   | 34  |
+| BQ14C8      | Quintuplet /Two/              | 34  |
+| BQ14C9      | QuintupletThree /Quintuplets/ | 34  |
+| BQ26C1      | Missing /Records/             | 36  |
+| BQ26C2      | Unlinked /Records/            | 33  |
+| MI31_SINGLE | Single /Test/                 | 46  |
+| T3          | Ancient /Living/              | 176 |
+| TC13A       | First /Thirteen/              | 31  |
+| TC13B       | Second /Sibling/              | 31  |
+| TC9         | TooLate /Father/              | 36  |
+| TC9B        | WayTooLate /Child/            | 35  |
+| TH25C1      | Alex /Twentyfive/             | 36  |
+| TH25C2      | Alex /Twentyfive/             | 36  |
+| TH25C3      | Alex /Twentyfive/             | 33  |
++-------------+-------------------------------+-----+
+
+US30: Living Married Individuals
++--------------+--------------------------------+------------------------+
+| ID           | Name                           | Spouse                 |
++--------------+--------------------------------+------------------------+
+| @I2@         | Mary /Whitfield/               | {'@F1@', '@F2@'}       |
+| @I3@         | Robert /Anderson/              | {'@F3@'}               |
+| @I4@         | Susan /Anderson/               | {'@F4@'}               |
+| @I5@         | Thomas /Baker/                 | {'@F2@'}               |
+| @I7@         | Faith /Ortiz/                  | {'@F3@'}               |
+| @I9@         | Michael /Smith/                | {'@F4@'}               |
+| BQ10H1       | Teen /Husband/                 | {'BQ10F1'}             |
+| BQ10H2       | Normal /Husband/               | {'BQ10F2'}             |
+| BQ10W1       | Adult /Wife/                   | {'BQ10F1'}             |
+| BQ10W2       | Fourteen /Wife/                | {'BQ10F2'}             |
+| BQ14H1       | Father /Sextuplets/            | {'BQ14F1'}             |
+| BQ14H2       | Father /Quintuplets/           | {'BQ14F2'}             |
+| BQ14W1       | Mother /Sextuplets/            | {'BQ14F1'}             |
+| BQ14W2       | Mother /Quintuplets/           | {'BQ14F2'}             |
+| BQ18C1       | Brother /Siblings/             | {'BQ18F2'}             |
+| BQ18C2       | Sister /Siblings/              | {'BQ18F2'}             |
+| BQ18H1       | Father /Siblings/              | {'BQ18F1'}             |
+| BQ18W1       | Mother /Siblings/              | {'BQ18F1'}             |
+| BQ22H1       | Husband /Unique/               | {'BQ22F1'}             |
+| BQ22W1       | Wife /Unique/                  | {'BQ22F1'}             |
+| BQ26H1       | Father /Records/               | {'BQ26F1'}             |
+| BQ26W1       | Mother /Records/               | {'BQ26F1'}             |
+| BQ30H1       | Husband /Married/              | {'BQ30F1'}             |
+| BQ30W1       | Wife /Married/                 | {'BQ30F1'}             |
+| JB12H1       | Old /Father/                   | {'JB12F1'}             |
+| JB12W1       | Old /Mother/                   | {'JB12F1'}             |
+| JB16H1       | John /Mismatch/                | {'JB16F1'}             |
+| JB16W1       | Jane /Mismatch/                | {'JB16F1'}             |
+| JB20Dad      | Innocent /Father/              | {'JB20F2'}             |
+| JB20GP_F     | Grand /Mother/                 | {'JB20F1'}             |
+| JB20GP_M     | Grand /Father/                 | {'JB20F1'}             |
+| JB20Mom      | Innocent /Mother/              | {'JB20F2'}             |
+| JB20Niece    | Unlucky /Niece/                | {'JB20F3'}             |
+| JB20Uncle    | Bad /Uncle/                    | {'JB20F3'}             |
+| JB24H1       | Duplicate /Husband/            | {'JB24F1'}             |
+| JB24H2       | Duplicate /Husband/            | {'JB24F2'}             |
+| JB24W1       | Duplicate /Wife/               | {'JB24F1'}             |
+| JB24W2       | Duplicate /Wife/               | {'JB24F2'}             |
+| MI11H        | Bigamy /Test/                  | {'MI11F1', 'MI11F2'}   |
+| MI11W1       | First /Wife/                   | {'MI11F1'}             |
+| MI11W2       | Second /Wife/                  | {'MI11F2'}             |
+| MI15H        | Large /FamilyFather/           | {'MI15F'}              |
+| MI15W        | Large /FamilyMother/           | {'MI15F'}              |
+| MI19C1       | FirstCousin /CousinTest/       | NA                     |
+| MI19C2       | SecondCousin /CousinTest/      | NA                     |
+| MI19GP1      | Grandfather /CousinTest/       | NA                     |
+| MI19GP2      | Grandmother /CousinTest/       | NA                     |
+| MI19P1       | FirstParent /CousinTest/       | NA                     |
+| MI19P2       | SecondParent /CousinTest/      | NA                     |
+| MI19S1       | FirstSpouse /CousinTest/       | NA                     |
+| MI19S2       | SecondSpouse /CousinTest/      | NA                     |
+| MI31_MARRIED | Married /Test/                 | {'MI31_FAMILY'}        |
+| MI31_SPOUSE  | Spouse /Test/                  | {'MI31_FAMILY'}        |
+| TH1          | TooYoung /Husband/             | {'TF1'}                |
+| TH13         | Father /Thirteen/              | {'TF13'}               |
+| TH13B        | Father /Twins/                 | {'TF13B'}              |
+| TH17AD       | Daughter /Seventeenone/        | {'TH17AF2'}            |
+| TH17AH       | Dad /Seventeenone/             | {'TH17AF1', 'TH17AF2'} |
+| TH17BS       | Son /Seventeentwo/             | {'TH17BF2'}            |
+| TH17BW       | Mom /Seventeentwo/             | {'TH17BF1', 'TH17BF2'} |
+| TH17CG       | Grandpa /Seventeenthree/       | {'TH17CF1', 'TH17CF3'} |
+| TH17CGD      | Granddaughter /Seventeenthree/ | {'TH17CF3'}            |
+| TH17CP       | Parent /Seventeenthree/        | {'TH17CF2'}            |
+| TH17CPW      | Parentspouse /Other/           | {'TH17CF2'}            |
+| TH21H1       | Wrong /Husbandone/             | {'TH21F1'}             |
+| TH21H2       | Right /Husbandtwo/             | {'TH21F2'}             |
+| TH21H3       | Swapped /Husbandthree/         | {'TH21F3'}             |
+| TH21H4       | Nosex /Husbandfour/            | {'TH21F4'}             |
+| TH21W1       | Right /Wifeone/                | {'TH21F1'}             |
+| TH21W2       | Wrong /Wifetwo/                | {'TH21F2'}             |
+| TH21W3       | Swapped /Wifethree/            | {'TH21F3'}             |
+| TH21W4       | Right /Wifefour/               | {'TH21F4'}             |
+| TH25H        | Dad /Twentyfive/               | {'TH25F1'}             |
+| TH25W        | Mom /Twentyfive/               | {'TH25F1'}             |
+| TW1          | Normal /Wife/                  | {'TF1'}                |
+| TW13         | Mother /Thirteen/              | {'TF13'}               |
+| TW13B        | Mother /Twins/                 | {'TF13B'}              |
++--------------+--------------------------------+------------------------+
 
 Families
-+---------+------------+------------+------------+---------------------------+-----------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| ID      | Married    | Divorced   | Husband ID | Husband Name              | Wife ID   | Wife Name                      | Children                                                                                                                                                     |
-+---------+------------+------------+------------+---------------------------+-----------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| @F1@    | 1968-06-14 | NA         | @I1@       | John /Anderson/           | @I2@      | Mary /Whitfield/               | {'@I3@', '@I4@'}                                                                                                                                             |
-| @F2@    | 1980-03-10 | NA         | @I5@       | Thomas /Baker/            | @I2@      | Mary /Whitfield/               | {'@I6@'}                                                                                                                                                     |
-| @F3@    | 1995-06-22 | NA         | @I3@       | Robert /Anderson/         | @I7@      | Faith /Ortiz/                  | {'@I8@'}                                                                                                                                                     |
-| @F4@    | 1998-08-15 | NA         | @I9@       | Michael /Smith/           | @I4@      | Susan /Anderson/               | {'@I10@'}                                                                                                                                                    |
-| BQ10F1  | 1993-06-01 | NA         | BQ10H1     | Teen /Husband/            | BQ10W1    | Adult /Wife/                   | NA                                                                                                                                                           |
-| BQ10F2  | 1994-06-01 | NA         | BQ10H2     | Normal /Husband/          | BQ10W2    | Fourteen /Wife/                | NA                                                                                                                                                           |
-| BQ14F1  | 1985-06-01 | NA         | BQ14H1     | Father /Sextuplets/       | BQ14W1    | Mother /Sextuplets/            | {'BQ14C1', 'BQ14C2', 'BQ14C3', 'BQ14C4', 'BQ14C5', 'BQ14C6'}                                                                                                 |
-| BQ14F2  | 1985-06-01 | NA         | BQ14H2     | Father /Quintuplets/      | BQ14W2    | Mother /Quintuplets/           | {'BQ14C10', 'BQ14C11', 'BQ14C7', 'BQ14C8', 'BQ14C9'}                                                                                                         |
-| BQ18F1  | 1972-06-01 | NA         | BQ18H1     | Father /Siblings/         | BQ18W1    | Mother /Siblings/              | {'BQ18C1', 'BQ18C2'}                                                                                                                                         |
-| BQ18F2  | 2000-06-01 | NA         | BQ18C1     | Brother /Siblings/        | BQ18C2    | Sister /Siblings/              | NA                                                                                                                                                           |
-| BQ22F1  | 2000-06-01 | NA         | BQ22H1     | Husband /Unique/          | BQ22W1    | Wife /Unique/                  | NA                                                                                                                                                           |
-| JB12F1  | 1965-06-01 | NA         | JB12H1     | Old /Father/              | JB12W1    | Old /Mother/                   | {'JB12C1'}                                                                                                                                                   |
-| JB16F1  | 1995-06-01 | NA         | JB16H1     | John /Mismatch/           | JB16W1    | Jane /Mismatch/                | {'JB16C1'}                                                                                                                                                   |
-| JB20F1  | 1945-01-01 | NA         | JB20GP_M   | Grand /Father/            | JB20GP_F  | Grand /Mother/                 | {'JB20Mom', 'JB20Uncle'}                                                                                                                                     |
-| JB20F2  | 1975-01-01 | NA         | JB20Dad    | Innocent /Father/         | JB20Mom   | Innocent /Mother/              | {'JB20Niece'}                                                                                                                                                |
-| JB20F3  | 2005-01-01 | NA         | JB20Uncle  | Bad /Uncle/               | JB20Niece | Unlucky /Niece/                | NA                                                                                                                                                           |
-| JB24F1  | 2005-01-01 | NA         | JB24H1     | Duplicate /Husband/       | JB24W1    | Duplicate /Wife/               | NA                                                                                                                                                           |
-| JB24F2  | 2005-01-01 | NA         | JB24H2     | Duplicate /Husband/       | JB24W2    | Duplicate /Wife/               | NA                                                                                                                                                           |
-| MI11F1  | 1995-01-01 | NA         | MI11H      | Bigamy /Test/             | MI11W1    | First /Wife/                   | NA                                                                                                                                                           |
-| MI11F2  | 2000-01-01 | NA         | MI11H      | Bigamy /Test/             | MI11W2    | Second /Wife/                  | NA                                                                                                                                                           |
-| MI15F   | 1980-01-01 | NA         | MI15H      | Large /FamilyFather/      | MI15W     | Large /FamilyMother/           | {'MI15C1', 'MI15C10', 'MI15C11', 'MI15C12', 'MI15C13', 'MI15C14', 'MI15C15', 'MI15C2', 'MI15C3', 'MI15C4', 'MI15C5', 'MI15C6', 'MI15C7', 'MI15C8', 'MI15C9'} |
-| MI19F1  | 1960-01-01 | NA         | MI19GP1    | Grandfather /CousinTest/  | MI19GP2   | Grandmother /CousinTest/       | {'MI19P1', 'MI19P2'}                                                                                                                                         |
-| MI19F2  | 1985-01-01 | NA         | MI19P1     | FirstParent /CousinTest/  | MI19S1    | FirstSpouse /CousinTest/       | {'MI19C1'}                                                                                                                                                   |
-| MI19F3  | 1988-01-01 | NA         | MI19S2     | SecondSpouse /CousinTest/ | MI19P2    | SecondParent /CousinTest/      | {'MI19C2'}                                                                                                                                                   |
-| MI19F4  | 2015-01-01 | NA         | MI19C1     | FirstCousin /CousinTest/  | MI19C2    | SecondCousin /CousinTest/      | NA                                                                                                                                                           |
-| TF1     | 1990-01-01 | NA         | TH1        | TooYoung /Husband/        | TW1       | Normal /Wife/                  | NA                                                                                                                                                           |
-| TF13    | 1985-01-01 | NA         | TH13       | Father /Thirteen/         | TW13      | Mother /Thirteen/              | {'TC13A', 'TC13B'}                                                                                                                                           |
-| TF13B   | 1990-01-01 | NA         | TH13B      | Father /Twins/            | TW13B     | Mother /Twins/                 | {'TC13C', 'TC13D'}                                                                                                                                           |
-| TF2     | 1995-01-01 | NA         | TH2        | Already /Dead/            | TW2       | Widow /Bride/                  | NA                                                                                                                                                           |
-| TF3     | 1980-01-01 | 1995-01-01 | TH3        | Living /Husband/          | TW3       | Deceased /Wife/                | NA                                                                                                                                                           |
-| TF9     | 1980-01-01 | NA         | TH9        | Living /Father/           | TW9       | Deceased /Mother/              | {'TC9'}                                                                                                                                                      |
-| TF9B    | 1980-01-01 | NA         | TH9B       | Deceased /Father/         | TW9B      | Living /Mother/                | {'TC9B'}                                                                                                                                                     |
-| TH17AF1 | 1953-01-01 | NA         | TH17AH     | Dad /Seventeenone/        | TH17AW    | Mom /Seventeenone/             | {'TH17AD'}                                                                                                                                                   |
-| TH17AF2 | 1990-01-01 | NA         | TH17AH     | Dad /Seventeenone/        | TH17AD    | Daughter /Seventeenone/        | NA                                                                                                                                                           |
-| TH17BF1 | 1953-01-01 | NA         | TH17BH     | Dad /Seventeentwo/        | TH17BW    | Mom /Seventeentwo/             | {'TH17BS'}                                                                                                                                                   |
-| TH17BF2 | 1990-01-01 | NA         | TH17BS     | Son /Seventeentwo/        | TH17BW    | Mom /Seventeentwo/             | NA                                                                                                                                                           |
-| TH17CF1 | 1944-01-01 | NA         | TH17CG     | Grandpa /Seventeenthree/  | TH17CGW   | Grandma /Seventeenthree/       | {'TH17CP'}                                                                                                                                                   |
-| TH17CF2 | 1968-01-01 | NA         | TH17CP     | Parent /Seventeenthree/   | TH17CPW   | Parentspouse /Other/           | {'TH17CGD'}                                                                                                                                                  |
-| TH17CF3 | 2000-01-01 | NA         | TH17CG     | Grandpa /Seventeenthree/  | TH17CGD   | Granddaughter /Seventeenthree/ | NA                                                                                                                                                           |
-| TH21F1  | 1985-01-01 | NA         | TH21H1     | Wrong /Husbandone/        | TH21W1    | Right /Wifeone/                | NA                                                                                                                                                           |
-| TH21F2  | 1985-01-01 | NA         | TH21H2     | Right /Husbandtwo/        | TH21W2    | Wrong /Wifetwo/                | NA                                                                                                                                                           |
-| TH21F3  | 1985-01-01 | NA         | TH21H3     | Swapped /Husbandthree/    | TH21W3    | Swapped /Wifethree/            | NA                                                                                                                                                           |
-| TH21F4  | 1985-01-01 | NA         | TH21H4     | Nosex /Husbandfour/       | TH21W4    | Right /Wifefour/               | NA                                                                                                                                                           |
-| TH25F1  | 1985-01-01 | NA         | TH25H      | Dad /Twentyfive/          | TH25W     | Mom /Twentyfive/               | {'TH25C1', 'TH25C2', 'TH25C3'}                                                                                                                               |
-+---------+------------+------------+------------+---------------------------+-----------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------+------------+------------+-------------+---------------------------+--------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| ID          | Married    | Divorced   | Husband ID  | Husband Name              | Wife ID      | Wife Name                      | Children                                                                                                                                                     |
++-------------+------------+------------+-------------+---------------------------+--------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| @F1@        | 1968-06-14 | NA         | @I1@        | John /Anderson/           | @I2@         | Mary /Whitfield/               | {'@I3@', '@I4@'}                                                                                                                                             |
+| @F2@        | 1980-03-10 | NA         | @I5@        | Thomas /Baker/            | @I2@         | Mary /Whitfield/               | {'@I6@'}                                                                                                                                                     |
+| @F3@        | 1995-06-22 | NA         | @I3@        | Robert /Anderson/         | @I7@         | Faith /Ortiz/                  | {'@I8@'}                                                                                                                                                     |
+| @F4@        | 1998-08-15 | NA         | @I9@        | Michael /Smith/           | @I4@         | Susan /Anderson/               | {'@I10@'}                                                                                                                                                    |
+| BQ10F1      | 1993-06-01 | NA         | BQ10H1      | Teen /Husband/            | BQ10W1       | Adult /Wife/                   | NA                                                                                                                                                           |
+| BQ10F2      | 1994-06-01 | NA         | BQ10H2      | Normal /Husband/          | BQ10W2       | Fourteen /Wife/                | NA                                                                                                                                                           |
+| BQ14F1      | 1985-06-01 | NA         | BQ14H1      | Father /Sextuplets/       | BQ14W1       | Mother /Sextuplets/            | {'BQ14C1', 'BQ14C2', 'BQ14C3', 'BQ14C4', 'BQ14C5', 'BQ14C6'}                                                                                                 |
+| BQ14F2      | 1985-06-01 | NA         | BQ14H2      | Father /Quintuplets/      | BQ14W2       | Mother /Quintuplets/           | {'BQ14C10', 'BQ14C11', 'BQ14C7', 'BQ14C8', 'BQ14C9'}                                                                                                         |
+| BQ18F1      | 1972-06-01 | NA         | BQ18H1      | Father /Siblings/         | BQ18W1       | Mother /Siblings/              | {'BQ18C1', 'BQ18C2'}                                                                                                                                         |
+| BQ18F2      | 2000-06-01 | NA         | BQ18C1      | Brother /Siblings/        | BQ18C2       | Sister /Siblings/              | NA                                                                                                                                                           |
+| BQ22F1      | 2000-06-01 | NA         | BQ22H1      | Husband /Unique/          | BQ22W1       | Wife /Unique/                  | NA                                                                                                                                                           |
+| BQ26F1      | 1985-06-01 | NA         | BQ26H1      | Father /Records/          | BQ26W1       | Mother /Records/               | {'BQ26C2'}                                                                                                                                                   |
+| BQ30F1      | 2010-06-01 | NA         | BQ30H1      | Husband /Married/         | BQ30W1       | Wife /Married/                 | NA                                                                                                                                                           |
+| BQ30F2      | 1975-06-01 | NA         | BQ30H2      | Husband /Widowed/         | BQ30W2       | Wife /Widowed/                 | NA                                                                                                                                                           |
+| BQ30F3      | 1995-06-01 | 2005-06-01 | BQ30H3      | Husband /Divorced/        | BQ30W3       | Wife /Divorced/                | NA                                                                                                                                                           |
+| JB12F1      | 1965-06-01 | NA         | JB12H1      | Old /Father/              | JB12W1       | Old /Mother/                   | {'JB12C1'}                                                                                                                                                   |
+| JB16F1      | 1995-06-01 | NA         | JB16H1      | John /Mismatch/           | JB16W1       | Jane /Mismatch/                | {'JB16C1'}                                                                                                                                                   |
+| JB20F1      | 1945-01-01 | NA         | JB20GP_M    | Grand /Father/            | JB20GP_F     | Grand /Mother/                 | {'JB20Mom', 'JB20Uncle'}                                                                                                                                     |
+| JB20F2      | 1975-01-01 | NA         | JB20Dad     | Innocent /Father/         | JB20Mom      | Innocent /Mother/              | {'JB20Niece'}                                                                                                                                                |
+| JB20F3      | 2005-01-01 | NA         | JB20Uncle   | Bad /Uncle/               | JB20Niece    | Unlucky /Niece/                | NA                                                                                                                                                           |
+| JB24F1      | 2005-01-01 | NA         | JB24H1      | Duplicate /Husband/       | JB24W1       | Duplicate /Wife/               | NA                                                                                                                                                           |
+| JB24F2      | 2005-01-01 | NA         | JB24H2      | Duplicate /Husband/       | JB24W2       | Duplicate /Wife/               | NA                                                                                                                                                           |
+| MI11F1      | 1995-01-01 | NA         | MI11H       | Bigamy /Test/             | MI11W1       | First /Wife/                   | NA                                                                                                                                                           |
+| MI11F2      | 2000-01-01 | NA         | MI11H       | Bigamy /Test/             | MI11W2       | Second /Wife/                  | NA                                                                                                                                                           |
+| MI15F       | 1980-01-01 | NA         | MI15H       | Large /FamilyFather/      | MI15W        | Large /FamilyMother/           | {'MI15C1', 'MI15C10', 'MI15C11', 'MI15C12', 'MI15C13', 'MI15C14', 'MI15C15', 'MI15C2', 'MI15C3', 'MI15C4', 'MI15C5', 'MI15C6', 'MI15C7', 'MI15C8', 'MI15C9'} |
+| MI19F1      | 1960-01-01 | NA         | MI19GP1     | Grandfather /CousinTest/  | MI19GP2      | Grandmother /CousinTest/       | {'MI19P1', 'MI19P2'}                                                                                                                                         |
+| MI19F2      | 1985-01-01 | NA         | MI19P1      | FirstParent /CousinTest/  | MI19S1       | FirstSpouse /CousinTest/       | {'MI19C1'}                                                                                                                                                   |
+| MI19F3      | 1988-01-01 | NA         | MI19S2      | SecondSpouse /CousinTest/ | MI19P2       | SecondParent /CousinTest/      | {'MI19C2'}                                                                                                                                                   |
+| MI19F4      | 2015-01-01 | NA         | MI19C1      | FirstCousin /CousinTest/  | MI19C2       | SecondCousin /CousinTest/      | NA                                                                                                                                                           |
+| MI31_FAMILY | 2005-01-01 | NA         | MI31_SPOUSE | Spouse /Test/             | MI31_MARRIED | Married /Test/                 | NA                                                                                                                                                           |
+| TF1         | 1990-01-01 | NA         | TH1         | TooYoung /Husband/        | TW1          | Normal /Wife/                  | NA                                                                                                                                                           |
+| TF13        | 1985-01-01 | NA         | TH13        | Father /Thirteen/         | TW13         | Mother /Thirteen/              | {'TC13A', 'TC13B'}                                                                                                                                           |
+| TF13B       | 1990-01-01 | NA         | TH13B       | Father /Twins/            | TW13B        | Mother /Twins/                 | {'TC13C', 'TC13D'}                                                                                                                                           |
+| TF2         | 1995-01-01 | NA         | TH2         | Already /Dead/            | TW2          | Widow /Bride/                  | NA                                                                                                                                                           |
+| TF3         | 1980-01-01 | 1995-01-01 | TH3         | Living /Husband/          | TW3          | Deceased /Wife/                | NA                                                                                                                                                           |
+| TF9         | 1980-01-01 | NA         | TH9         | Living /Father/           | TW9          | Deceased /Mother/              | {'TC9'}                                                                                                                                                      |
+| TF9B        | 1980-01-01 | NA         | TH9B        | Deceased /Father/         | TW9B         | Living /Mother/                | {'TC9B'}                                                                                                                                                     |
+| TH17AF1     | 1953-01-01 | NA         | TH17AH      | Dad /Seventeenone/        | TH17AW       | Mom /Seventeenone/             | {'TH17AD'}                                                                                                                                                   |
+| TH17AF2     | 1990-01-01 | NA         | TH17AH      | Dad /Seventeenone/        | TH17AD       | Daughter /Seventeenone/        | NA                                                                                                                                                           |
+| TH17BF1     | 1953-01-01 | NA         | TH17BH      | Dad /Seventeentwo/        | TH17BW       | Mom /Seventeentwo/             | {'TH17BS'}                                                                                                                                                   |
+| TH17BF2     | 1990-01-01 | NA         | TH17BS      | Son /Seventeentwo/        | TH17BW       | Mom /Seventeentwo/             | NA                                                                                                                                                           |
+| TH17CF1     | 1944-01-01 | NA         | TH17CG      | Grandpa /Seventeenthree/  | TH17CGW      | Grandma /Seventeenthree/       | {'TH17CP'}                                                                                                                                                   |
+| TH17CF2     | 1968-01-01 | NA         | TH17CP      | Parent /Seventeenthree/   | TH17CPW      | Parentspouse /Other/           | {'TH17CGD'}                                                                                                                                                  |
+| TH17CF3     | 2000-01-01 | NA         | TH17CG      | Grandpa /Seventeenthree/  | TH17CGD      | Granddaughter /Seventeenthree/ | NA                                                                                                                                                           |
+| TH21F1      | 1985-01-01 | NA         | TH21H1      | Wrong /Husbandone/        | TH21W1       | Right /Wifeone/                | NA                                                                                                                                                           |
+| TH21F2      | 1985-01-01 | NA         | TH21H2      | Right /Husbandtwo/        | TH21W2       | Wrong /Wifetwo/                | NA                                                                                                                                                           |
+| TH21F3      | 1985-01-01 | NA         | TH21H3      | Swapped /Husbandthree/    | TH21W3       | Swapped /Wifethree/            | NA                                                                                                                                                           |
+| TH21F4      | 1985-01-01 | NA         | TH21H4      | Nosex /Husbandfour/       | TH21W4       | Right /Wifefour/               | NA                                                                                                                                                           |
+| TH25F1      | 1985-01-01 | NA         | TH25H       | Dad /Twentyfive/          | TH25W        | Mom /Twentyfive/               | {'TH25C1', 'TH25C2', 'TH25C3'}                                                                                                                               |
++-------------+------------+------------+-------------+---------------------------+--------------+--------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 User Story Results (Sprint 1 + Sprint 2 + Sprint 3 + Sprint 4)
 ----------------------------------------------------------------------
@@ -2279,6 +2647,21 @@ ERROR: FAMILY: US09: 270: TF9B: Child (TC9B) born 1990-12-01 more than 9 months 
 ERROR: FAMILY: US13: 300: TF13: Siblings (TC13A) born 1995-01-01 and (TC13B) born 1995-03-01 are only 59 days apart
 ERROR: INDIVIDUAL: US11: 368: MI11H: Bigamy detected - marriage in MI11F2 occurred before previous marriage ended
 ERROR: FAMILY: US15: 381: MI15F: Family has 15 children, which is not fewer than 15
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C1) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C2) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C3) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C4) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C5) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C6) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C7) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C8) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C9) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C10) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C11) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C12) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C13) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C14) does not exist
+ERROR: FAMILY: US26: 381: MI15F: Child (MI15C15) does not exist
 ERROR: FAMILY: US10: 417: BQ10F1: Husband (BQ10H1) born 1980-01-01 was 13 years old at marriage on 1993-06-01, younger than 14
 ERROR: FAMILY: US14: 481: BQ14F1: 6 siblings born at the same time on 1990-01-01, more than 5
 ERROR: FAMILY: US12: 562: JB12F1: Mother (JB12W1) born 1935-01-01 is 65 years older than child (JB12C1) born 2000-06-01 (>= 60)
@@ -2294,6 +2677,18 @@ ERROR: FAMILY: US21: 754: TH21F3: Wife (TH21W3) should be female but is listed a
 ERROR: FAMILY: US18: 816: BQ18F2: Husband (BQ18C1) and wife (BQ18C2) are siblings
 ERROR: INDIVIDUAL: US22: 829: BQ22W1: Individual ID BQ22W1 is already used by the individual on line 823
 ERROR: FAMILY: US22: 839: BQ22F1: Family ID BQ22F1 is already used by the family on line 834
+ERROR: FAMILY: US26: 884: MI19F1: Husband (MI19GP1) does not list family MI19F1 as a spouse family
+ERROR: FAMILY: US26: 884: MI19F1: Wife (MI19GP2) does not list family MI19F1 as a spouse family
+ERROR: FAMILY: US26: 884: MI19F1: Child (MI19P1) does not list family MI19F1 as a child family
+ERROR: FAMILY: US26: 884: MI19F1: Child (MI19P2) does not list family MI19F1 as a child family
+ERROR: FAMILY: US26: 891: MI19F2: Husband (MI19P1) does not list family MI19F2 as a spouse family
+ERROR: FAMILY: US26: 891: MI19F2: Wife (MI19S1) does not list family MI19F2 as a spouse family
+ERROR: FAMILY: US26: 891: MI19F2: Child (MI19C1) does not list family MI19F2 as a child family
+ERROR: FAMILY: US26: 897: MI19F3: Husband (MI19S2) does not list family MI19F3 as a spouse family
+ERROR: FAMILY: US26: 897: MI19F3: Wife (MI19P2) does not list family MI19F3 as a spouse family
+ERROR: FAMILY: US26: 897: MI19F3: Child (MI19C2) does not list family MI19F3 as a child family
+ERROR: FAMILY: US26: 903: MI19F4: Husband (MI19C1) does not list family MI19F4 as a spouse family
+ERROR: FAMILY: US26: 903: MI19F4: Wife (MI19C2) does not list family MI19F4 as a spouse family
 ERROR: FAMILY: US19: 907: MI19F4: Husband (MI19C1) and wife (MI19C2) are first cousins
 ERROR: INDIVIDUAL: US23: 917: MI23I2: Same name (Alex /DuplicateTest/) and birth date (2000-05-10) as individual (MI23I1)
 ERROR: FAMILY: US16: 930: JB20F1: Male child (JB20Uncle, 'Bad /Uncle/') has a different last name than father (JB20GP_M, 'Grand /Father/')
@@ -2303,3 +2698,5 @@ ERROR: INDIVIDUAL: US23: 1002: JB24W2: Same name (Duplicate /Wife/) and birth da
 ERROR: FAMILY: US24: 1004: JB24F2: Family shares identical spouses (Duplicate /Husband/, Duplicate /Wife/) and marriage date (2005-01-01) with Family (JB24F1)
 ERROR: INDIVIDUAL: US23: 1031: TH25C2: Same name (Alex /Twentyfive/) and birth date (1990-01-01) as individual (TH25C1)
 ERROR: FAMILY: US25: 1031: TH25F1: Child (TH25C2) has the same name (Alex /Twentyfive/) and birth date (1990-01-01) as sibling (TH25C1)
+ERROR: INDIVIDUAL: US26: 1098: BQ26C1: Child in family BQ26F1, but family BQ26F1 does not list them as a child
+ERROR: FAMILY: US26: 1109: BQ26F1: Child (BQ26C2) does not list family BQ26F1 as a child family
